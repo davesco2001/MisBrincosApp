@@ -31,4 +31,15 @@
     <string name="create_class">Crear Clase</string>
     <string name="show_classes">Ver Clases</string>
     <string name="delete_class">Eliminar Clase</string>
+    <string name="create_package">Crear Paquete</string>
+    <string name="show_packages">Mostrar Paquetes</string>
+    <string name="delete_package">Borrar Paquete</string>
+    <string name="create_student">Crear Alumno</string>
+    <string name="show_students">Mostrar Alumnos</string>
+    <string name="edit_student">Modificar Alumno</string>
+    <string name="edit_package">Modificar Paquete</string>
+    <string name="create_session">Crear Sesión</string>
+    <string name="delete_session">Eliminar Sesión</string>
+    <string name="show_sessions">Mostrar Sesiones</string>
+    <string name="edit_session">Modificar Sesión</string>
 </resources>

@@ -33,4 +33,15 @@
     <string name="create_class">Create Lesson</string>
     <string name="show_classes">Show Lessons</string>
     <string name="delete_class">Delete Lesson</string>
+    <string name="create_package">Create Package</string>
+    <string name="show_packages">Show Packages</string>
+    <string name="delete_package">Delete Package</string>
+    <string name="create_student">Create Student</string>
+    <string name="show_students">Show Students</string>
+    <string name="edit_student">Edit Student</string>
+    <string name="edit_package">Edit Package</string>
+    <string name="create_session">Create Session</string>
+    <string name="delete_session">Delete Session</string>
+    <string name="show_sessions">Show Sessions</string>
+    <string name="edit_session">Edit Session</string>
 </resources>

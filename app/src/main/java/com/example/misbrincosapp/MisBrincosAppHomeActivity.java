@@ -85,12 +85,12 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
 
     private void getNormalUserFuncions() {
         upDateUIUser();
-        setNavegationIconToolBar();
+        setLogoIconToolBar();
     }
 
-    private void setNavegationIconToolBar() {
+    private void setLogoIconToolBar() {
         toolbar = findViewById(R.id.toolbar_mis_brincos_home);
-        toolbar.setNavigationIcon(R.drawable.ic_book_black_24dp);
+        toolbar.setLogo(R.drawable.ic_book_black_24dp);
     }
 
     private void upDateUIAdmin() {
@@ -122,20 +122,20 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
                     Function functionSelected = functionsAdmin.get(i);
                     String name = functionSelected.getName();
                     if (name.equals(getString(R.string.classes_function))) {
-                        //Intent intent = new Intent(MisBrincosAppHome.this, ClassesActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, LessonsActivity.class);
+                        startActivity(intent);
                     }
                     if (name.equals(getString(R.string.sessions_functions))) {
-                        //Intent intent = new Intent(MisBrincosAppHome.this, SessionsActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, SessionsActivity.class);
+                        startActivity(intent);
                     }
                     if (name.equals(getString(R.string.students_function))) {
-                        //Intent intent = new Intent(MisBrincosAppHome.this, StudentsActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, StudentsActivity.class);
+                        startActivity(intent);
                     }
                     if (name.equals(getString(R.string.packages_function))) {
-                        //Intent intent = new Intent(MisBrincosAppHome.this, PackagesActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, PackagesActivity.class);
+                        startActivity(intent);
                     }
                 }
             }
@@ -146,16 +146,16 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
                     Function functionSelected = functionsUser.get(i);
                     String name = functionSelected.getName();
                     if (name.equals(getString(R.string.create_booking))) {
-                        //Intent intent = new Intent(MisBrincosAppHome.this, CreateBookingActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, CreateBookingActivity.class);
+                        startActivity(intent);
                     }
                     if (name.equals(getString(R.string.delete_booking))) {
-                        //Intent intent = new Intent(MisBrincosAppHome.this, DeleteBookingActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, DeleteBookingActivity.class);
+                        startActivity(intent);
                     }
                     if (name.equals(getString(R.string.show_bookings))) {
-                        //Intent intent = new Intent(MisBrincosAppHome.this, ShowBookingsActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, ShowBookingsActivity.class);
+                        startActivity(intent);
                     }
                 }
 
