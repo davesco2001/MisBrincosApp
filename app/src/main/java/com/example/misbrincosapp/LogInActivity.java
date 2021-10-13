@@ -70,9 +70,9 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    //Toast.makeText(LogInActivity.this, R.string.login_sucess_msg, Toast.LENGTH_SHORT).show();
-                    //Intent intent= new Intent(LogInActivity.this,MisBrincosAppHome.class);
-                    //startActivity(intent);
+                    Toast.makeText(LogInActivity.this, R.string.login_sucess_msg, Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent(LogInActivity.this,MisBrincosAppHomeActivity.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(LogInActivity.this, R.string.login_fail_msg, Toast.LENGTH_SHORT).show();
 

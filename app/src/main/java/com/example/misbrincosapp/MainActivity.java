@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextAppearance(this,R.style.ToolbarTitleStyle);
-        toolbar.setBackgroundResource(R.color.colorRebeccaPurple); //Ver por que no funciona.....
-    }
+        }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
