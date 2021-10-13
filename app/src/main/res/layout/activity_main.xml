@@ -52,6 +52,7 @@
         android:width="200dp"
         android:background="@drawable/rounded_corner_main"
         android:fontFamily="@font/nunito_bold"
+        android:onClick="onClick"
         android:text="@string/log_in"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"

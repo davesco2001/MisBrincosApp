@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button logIn = (Button) findViewById(R.id.log_in_welcome_button);
+        Button logIn = findViewById(R.id.log_in_welcome_button);
         logIn.setOnClickListener(this);
 
         setContentView(R.layout.activity_main);
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.log_in_welcome_button:
-                //Intent intent= new Intent(MainActivity.this, LogInActivity.class);
-                //startActivity(intent);
+                Intent intent= new Intent(MainActivity.this, LogInActivity.class);
+                startActivity(intent);
                 break;
         }
     }
