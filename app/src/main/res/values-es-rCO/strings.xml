@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MisBrincosApp</string>
+    <string name="classes_function">Clases</string>
+    <string name="sessions_functions">Sesiones</string>
+    <string name="students_function">Alumnos</string>
+    <string name="packages_function">Paquetes</string>
+    <string name="booking_function">Reservas</string>
+    <string name="create_booking">Realizar Reserva</string>
+    <string name="show_bookings">Mostrar Reservas</string>
+    <string name="delete_booking">Cancelar Reserva</string>
+    <string name="title_activity_log_in">LogIn Actividad</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Anterior</string>
+    <string name="password">Contraseña</string>
+    <string name="welcome_back">Bienvenido</string>
+    <string name="log_in">LogIn</string>
+    <string name="email">Correo</string>
+    <string name="ilustration_log_in">Ilsutracion Log In</string>
+    <string name="button">Boton</string>
+    <string name="textview">textView</string>
+    <string name="welcome_to">Bienvenido a</string>
+    <string name="mis_brincos">Mis Brincos</string>
+    <string name="svg_main_page">"svg "</string>
+    <string name="login_sucess_msg">Exito Login</string>
+    <string name="login_fail_msg">Fallo Login</string>
+    <string name="lack_msg">Porfavor complete los parametros</string>
+    <string name="user_btn">Boton del usuario</string>
+    <string name="your_functions_are">Tus funciones son</string>
+    <string name="icon_card_base">icon card</string>
+    <string name="create_class">Crear Clase</string>
+    <string name="show_classes">Ver Clases</string>
+    <string name="delete_class">Eliminar Clase</string>
+</resources>
