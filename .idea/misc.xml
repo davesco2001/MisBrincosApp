@@ -4,8 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_account_circle_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_add_circle_outline_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_book_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_class_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_delete_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_edit_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_get_app_black_18dp.xml" value="0.1" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_local_mall_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_lock_black_18dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_login.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_mail_black_18dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_open_doodles_moshing.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_people_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_today_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_undraw_dua_lipa_ixam.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_undraw_workout_gcgu.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/icon_card_item.xml" value="0.1" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/icon_vector_1.xml" value="0.24537037037037038" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/rounded_corner.xml" value="0.23487179487179488" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/rounded_corner_main.xml" value="0.23487179487179488" />
