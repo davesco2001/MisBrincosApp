@@ -25,11 +25,25 @@
         app:title="@string/classes_function"
         app:titleTextColor="@color/colorRebeccaPurple" />
 
+    <ImageView
+        android:id="@+id/ilustr_lessons_function"
+        android:layout_width="295dp"
+        android:layout_height="235dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/ilustration_log_in"
+        android:src="@drawable/ic_lessons"
+        app:layout_constraintBottom_toTopOf="@+id/recycle_functions_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_lessons" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_functions_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="359dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="200dp"
         android:background="@color/colorWhite"
         android:padding="15dp"
         android:paddingLeft="10dp"
@@ -41,7 +55,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_lessons"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toBottomOf="@+id/ilustr_sessions_function" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
