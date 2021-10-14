@@ -10,6 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MisBrincosApp">
         <activity
+            android:name=".EditSessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowSessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DeleteSessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreateSessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditStudentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowStudentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreateStudentsActivity"
+            android:exported="true" />
+        <activity
             android:name=".EditPackagesActivity"
             android:exported="true" />
         <activity
