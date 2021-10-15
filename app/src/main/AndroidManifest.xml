@@ -10,6 +10,81 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MisBrincosApp">
         <activity
+            android:name=".UserInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddPackageToStudentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditSessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowSessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DeleteSessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreateSessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditStudentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowStudentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreateStudentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditPackagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowPackagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DeletePackagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreatePackagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowLessonsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DeleteLessonsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreateLessonsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowBookingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DeleteBookingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreateBookingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PackagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StudentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SessionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LessonsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MisBrincosAppHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LogInActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

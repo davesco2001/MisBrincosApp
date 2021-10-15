@@ -1,18 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBluePurple"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tittleLogo"
+        android:layout_width="327dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:width="328dp"
+        android:height="61dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/mis_brincos"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorWhite"
+        android:textSize="59sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/svgmain"
+        android:layout_width="286dp"
+        android:layout_height="170dp"
+        android:contentDescription="@string/svg_main_page"
+        app:layout_constraintBottom_toTopOf="@+id/log_in_welcome_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tittleLogo"
+        app:srcCompat="@drawable/ic_undraw_dua_lipa_ixam__1_" />
+
+    <Button
+        android:id="@+id/log_in_welcome_button"
+        style="@style/Widget.AppCompat.ButtonBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="204dp"
+        android:width="200dp"
+        android:background="@drawable/rounded_corner_main"
+        android:fontFamily="@font/nunito_bold"
+        android:onClick="onClick"
+        android:text="@string/log_in"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorRebeccaPurple"
+        android:textSize="24sp"
+        android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tittleLogo"
+        app:layout_constraintVertical_bias="1.0" />
 
-</android.support.constraint.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBluePurple"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/welcome_to"
+        app:titleTextAppearance="@style/ToolbarTitleStyle"
+        app:titleTextColor="@color/colorWhite" />
+</androidx.constraintlayout.widget.ConstraintLayout>

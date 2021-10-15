@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">MisBrincosApp</string>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="password">Password</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="log_in">LogIn</string>
+    <string name="email">Email</string>
+    <string name="ilustration_log_in">IlustrationLogIn</string>
+    <string name="button">Button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="textview">TextView</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="mis_brincos">Mis Brincos</string>
+    <string name="svg_main_page">SVG main page ilustration</string>
+    <string name="login_sucess_msg">Succes login</string>
+    <string name="login_fail_msg">Failed LogIn</string>
+    <string name="lack_msg">Please complete the parameters</string>
+    <string name="user_btn">User Button</string>
+    <string name="your_functions_are">Your functions are</string>
+    <string name="icon_card_base">Icon Card Base</string>
+    <string name="classes_function">Lessons</string>
+    <string name="sessions_functions">Sessions</string>
+    <string name="students_function">Students</string>
+    <string name="packages_function">Packages</string>
+    <string name="booking_function">Bookings</string>
+    <string name="create_booking">Create Booking</string>
+    <string name="show_bookings">Show Bookings</string>
+    <string name="delete_booking">Delete Booking</string>
+    <string name="create_class">Create Lesson</string>
+    <string name="show_classes">Show Lessons</string>
+    <string name="delete_class">Delete Lesson</string>
+    <string name="create_package">Create Package</string>
+    <string name="show_packages">Show Packages</string>
+    <string name="delete_package">Delete Package</string>
+    <string name="create_student">Create Student</string>
+    <string name="show_students">Show Students</string>
+    <string name="edit_student">Edit Student</string>
+    <string name="edit_package">Edit Package</string>
+    <string name="create_session">Create Session</string>
+    <string name="delete_session">Delete Session</string>
+    <string name="show_sessions">Show Sessions</string>
+    <string name="edit_session">Edit Session</string>
+    <string name="add_package">Add Package to Student</string>
+    <string name="name">Name</string>
+    <string name="logout">LogOut</string>
 </resources>

@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_account_circle_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_add_circle_outline_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_book_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_class_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_delete_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_edit_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_get_app_black_18dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_local_mall_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_lock_black_18dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_login.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_mail_black_18dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_open_doodles_moshing.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_people_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_school_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_today_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_undraw_dua_lipa_ixam.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/ic_undraw_workout_gcgu.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/icon_card_item.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/icon_card_item_without_icon.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/icon_vector_1.xml" value="0.24537037037037038" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/icon_vector_2.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/rounded_corner.xml" value="0.23487179487179488" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/drawable/rounded_corner_main.xml" value="0.23487179487179488" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_add_package_to_students.xml" value="0.23958333333333334" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_create_booking.xml" value="0.1640625" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_create_students.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_delete_lessons.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_delete_packages.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_edit_packages.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_edit_students.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_lessons.xml" value="0.3333333333333333" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_log_in.xml" value="0.3333333333333333" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_main.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_mis_brincos_app_home.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_packages.xml" value="0.22" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_sessions.xml" value="0.16666666666666666" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_show_lessons.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_show_packages.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_show_sessions.xml" value="0.24270833333333333" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_show_students.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_students.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_user_info.xml" value="0.22" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/function_card.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/menu/menu.xml" value="0.14666666666666667" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/menu/menu_lessons.xml" value="0.30052083333333335" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

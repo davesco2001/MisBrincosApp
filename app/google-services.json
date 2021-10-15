@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "956406580815",
+    "project_id": "misbrincosapp",
+    "storage_bucket": "misbrincosapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956406580815:android:f9bf5801da689a724e4c3a",
+        "android_client_info": {
+          "package_name": "com.example.misbrincosapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956406580815-sh87hq8lulutolac2lnmlegena4c0b9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsMAacfvD4LMv6mTs6cCVV76OUDrddLOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956406580815-sh87hq8lulutolac2lnmlegena4c0b9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
