@@ -63,6 +63,8 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
         private static final int showValue = 7;
         private static final int editValue = 8;
         private static final int deleteValue = 9;
+        //EXTERNAL FUNCTIONS
+        private static final int addPackageToStudent = 10;
 
         public ViewHolderFunctions( @NonNull View itemView){
             super(itemView);
@@ -112,13 +114,17 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
                     icon.setEnabled(false);
                     icon.setImageResource(R.drawable.ic_delete_black_24dp);
                     break;
+                case addPackageToStudent:
+                    icon.setEnabled(true);
+                    icon.setImageResource(R.drawable.ic_local_mall_black_24dp);
+                    break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + functions.get(position).getType());
             }
         }
         @Override
         public void onClick(View v) {
-            int clickedItem= getAdapterPosition();
+            int clickedItem= getBindingAdapterPosition();
             onClickListener.onListItemClick(clickedItem);
         }
     }

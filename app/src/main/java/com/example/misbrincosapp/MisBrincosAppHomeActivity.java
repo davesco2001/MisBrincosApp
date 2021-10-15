@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -54,7 +55,7 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
             if (currentUser.getUid().equals("XIEfOnMpi7dsmtV6mT7JEGpJCiC3")) {
                 getAdminFunctions();
             } else {
-                getNormalUserFuncions();
+                getNormalUserFunctions();
             }
         } else {
             finish();
@@ -78,14 +79,27 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
         inflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem){
+        switch (menuItem.getItemId()){
+            case R.id.action_user_favorite:
+                openUserInfoActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
+    }
+    private void openUserInfoActivity() {
+        Intent intent= new Intent(MisBrincosAppHomeActivity.this,UserInfoActivity.class);
+        startActivity(intent);
+    }
     private void getAdminFunctions() {
         upDateUIAdmin();
     }
 
-    private void getNormalUserFuncions() {
+    private void getNormalUserFunctions() {
         upDateUIUser();
-        setLogoIconToolBar();
+        //setLogoIconToolBar(); Not working produce error, check later when you have time ;)
     }
 
     private void setLogoIconToolBar() {

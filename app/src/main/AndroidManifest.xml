@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MisBrincosApp">
         <activity
+            android:name=".UserInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddPackageToStudentsActivity"
+            android:exported="true" />
+        <activity
             android:name=".EditSessionsActivity"
             android:exported="true" />
         <activity

@@ -42,4 +42,5 @@
     <string name="delete_session">Eliminar Sesión</string>
     <string name="show_sessions">Mostrar Sesiones</string>
     <string name="edit_session">Modificar Sesión</string>
+    <string name="add_package">Añadir Paquete al Alumno</string>
 </resources>

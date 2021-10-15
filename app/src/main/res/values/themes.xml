@@ -26,7 +26,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <style name="CardViewStyleMisBrincos" parent="CardView">
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
     <style name="Theme.MisBrincosApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MisBrincosApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

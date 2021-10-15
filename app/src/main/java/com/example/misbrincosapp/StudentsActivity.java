@@ -21,6 +21,9 @@ public class StudentsActivity extends AppCompatActivity implements FunctionAdapt
     private static final int showValue = 7;
     private static final int editValue = 8;
     private static final int deleteValue = 9;
+    //EXTERNAL FUNCTIONS
+    private static final int addPackageToStudent = 10;
+    //OTHER
     FirebaseUser currentUser;
     private Toolbar toolbar;
     private FirebaseAuth mAuth;
@@ -77,6 +80,7 @@ public class StudentsActivity extends AppCompatActivity implements FunctionAdapt
         functionsAdmin.add(new Function(getString(R.string.create_student), createValue));
         functionsAdmin.add(new Function(getString(R.string.show_students), showValue));
         functionsAdmin.add(new Function(getString(R.string.edit_student), editValue));
+        functionsAdmin.add(new Function(getString(R.string.add_package), addPackageToStudent));
         FunctionAdapter functionAdapter = new FunctionAdapter(functionsAdmin, this);
         recyclerView.setAdapter(functionAdapter);
     }
@@ -98,6 +102,10 @@ public class StudentsActivity extends AppCompatActivity implements FunctionAdapt
                 }
                 if (name.equals(getString(R.string.edit_student))) {
                     Intent intent = new Intent(StudentsActivity.this, EditStudentsActivity.class);
+                    startActivity(intent);
+                }
+                if (name.equals(getString(R.string.add_package))) {
+                    Intent intent = new Intent(StudentsActivity.this, AddPackageToStudentsActivity.class);
                     startActivity(intent);
                 }
             }
