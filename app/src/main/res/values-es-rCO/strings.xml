@@ -43,4 +43,8 @@
     <string name="show_sessions">Mostrar Sesiones</string>
     <string name="edit_session">Modificar Sesión</string>
     <string name="add_package">Añadir Paquete al Alumno</string>
+    <string name="edit">Editar</string>
+    <string name="create">Crear</string>
+    <string name="delete">Borrar</string>
+    <string name="create_new_package">Crear un paquete nuevo</string>
 </resources>
