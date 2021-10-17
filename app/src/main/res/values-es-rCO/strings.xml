@@ -14,7 +14,7 @@
     <string name="previous">Anterior</string>
     <string name="password">Contraseña</string>
     <string name="welcome_back">Bienvenido</string>
-    <string name="log_in">LogIn</string>
+    <string name="log_in">Iniciar sesión</string>
     <string name="email">Correo</string>
     <string name="ilustration_log_in">Ilsutracion Log In</string>
     <string name="button">Boton</string>
@@ -47,4 +47,6 @@
     <string name="create">Crear</string>
     <string name="delete">Borrar</string>
     <string name="create_new_package">Crear un paquete nuevo</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="name">Nombre</string>
 </resources>
