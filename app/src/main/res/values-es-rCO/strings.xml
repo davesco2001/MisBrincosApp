@@ -49,4 +49,11 @@
     <string name="create_new_package">Crear un paquete nuevo</string>
     <string name="logout">Cerrar sesión</string>
     <string name="name">Nombre</string>
+    <string name="package_name">Nombre del Paquete</string>
+    <string name="total_lessons">Total de Lecciones</string>
+    <string name="price">Precio</string>
+    <string name="total_days">Total de Dias</string>
+    <string name="insert_package_name">Inserte el nombre del plan del paquete</string>
+    <string name="insert_price_package">Inserte el precio del paquete</string>
+    <string name="select_package_id">Seleccione el ID del paquete</string>
 </resources>
