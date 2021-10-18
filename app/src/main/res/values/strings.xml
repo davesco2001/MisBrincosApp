@@ -47,4 +47,13 @@
     <string name="add_package">Add Package to Student</string>
     <string name="name">Name</string>
     <string name="logout">LogOut</string>
+    <string name="lesson_name">Lesson Name</string>
+    <string name="duration">Duration</string>
+    <string name="pakcage_plan">Package Plan</string>
+    <string name="total_of_lessons">Total of Lessons</string>
+    <string name="pakcage_title_id">Package Id</string>
+    <string name="student_name">Student Name</string>
+    <string name="Cc">Cc</string>
+    <string name="session_lessons_name">Session Name</string>
+    <string name="date">Date</string>
 </resources>
