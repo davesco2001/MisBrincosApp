@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:logo="@drawable/ic_account_circle_black_24dp"
         app:navigationIcon="@drawable/icon_vector_2"
-        app:title="@string/classes_function"
+        app:title="@string/your_account"
         app:titleTextColor="@color/colorRebeccaPurple" />
 
     <androidx.cardview.widget.CardView

@@ -56,4 +56,22 @@
     <string name="Cc">Cc</string>
     <string name="session_lessons_name">Session Name</string>
     <string name="date">Date</string>
+    <string name="your_name">Your name</string>
+    <string name="student_s_name">Student\'s Name</string>
+    <string name="your_account">Your Account</string>
+    <string name="your_cc">Your Cc</string>
+    <string name="student_s_cc">Student\'s Cc</string>
+    <string name="your_phone">Your Phone</string>
+    <string name="student_s_phone">Student\'s Phone</string>
+    <string name="phone">Phone</string>
+    <string name="your_email">Your Email</string>
+    <string name="student_s_email">Student\'s Email</string>
+    <string name="create">Create</string>
+    <string name="edit">Edit</string>
+    <string name="id_package">Id\'s Package</string>
+    <string name="Cc_student">Cc\'s Student</string>
+    <string name="name_s_lessons">Lesson\'s Names</string>
+    <string name="your_lessons_name">Yours Lessons Names</string>
+    <string name="your_package_id">Your Package Id</string>
+    <string name="add_package_to_student">Add Package</string>
 </resources>
