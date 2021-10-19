@@ -58,4 +58,9 @@
     <string name="insert_package_name">Insert Package Plan Name</string>
     <string name="insert_price_package">Insert the Price of the Package</string>
     <string name="select_package_id">Select Package ID</string>
+    <string name="select_session_id">Select Session ID</string>
+    <string name="day">Day</string>
+    <string name="hour">Hour</string>
+    <string name="date">Date</string>
+    <string name="classroom_number">Classroom Number</string>
 </resources>

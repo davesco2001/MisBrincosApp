@@ -53,7 +53,12 @@
     <string name="total_lessons">Total de Lecciones</string>
     <string name="price">Precio</string>
     <string name="total_days">Total de Dias</string>
-    <string name="insert_package_name">Inserte el nombre del plan del paquete</string>
-    <string name="insert_price_package">Inserte el precio del paquete</string>
+    <string name="insert_package_name">Ingrese el nombre del plan del paquete</string>
+    <string name="insert_price_package">Ingrese el precio del paquete</string>
     <string name="select_package_id">Seleccione el ID del paquete</string>
+    <string name="select_session_id">"Seleccione el ID de la sesión "</string>
+    <string name="day">Día</string>
+    <string name="hour">Hora</string>
+    <string name="date">Fecha</string>
+    <string name="classroom_number">Numero del salón</string>
 </resources>
