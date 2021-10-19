@@ -14,14 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHolderSessions>{
+public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHolderBookings> {
+    ArrayList<Booking> bookings;
+    private final BookingsAdapter.ListItemClick onClickListener;
 
-    ArrayList<Session> sessions;
-    private final SessionsAdapter.ListItemClick onClickListener;
-
-
-    public  SessionsAdapter(ArrayList<Session> sessions, SessionsAdapter.ListItemClick listener){
-        this.sessions = sessions;
+    public  BookingsAdapter(ArrayList<Booking> bookings, BookingsAdapter.ListItemClick listener){
+        this.bookings = bookings;
         this.onClickListener = listener;
     }
     public interface ListItemClick{
@@ -29,42 +27,45 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
     }
     @NonNull
     @Override
-    public ViewHolderSessions onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolderBookings onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        int item = R.layout.session_card;
+        int item = R.layout.booking_card;
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         boolean fast = false;
         View view = layoutInflater.inflate(item,parent,fast);
-        ViewHolderSessions viewHolderSessions= new ViewHolderSessions(view);
-        return viewHolderSessions;
+        ViewHolderBookings  viewHolderBookings= new ViewHolderBookings(view);
+        return viewHolderBookings;
     }
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderSessions holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderBookings holder, int position) {
         holder.bind(position);
     }
     @Override
     public int getItemCount() {
-        return sessions.size();
+        return bookings.size();
     }
-    public class ViewHolderSessions extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolderBookings extends RecyclerView.ViewHolder implements View.OnClickListener {
         CardView cardView;
-        TextView sessionLessonName;
+        TextView bookingsName;
         TextView date;
         ImageButton icon;
 
-        public ViewHolderSessions(@NonNull View itemView) {
+
+        public ViewHolderBookings(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.session_card_id);
-            sessionLessonName = itemView.findViewById(R.id.sessionTextLessonName);
-            date = itemView.findViewById(R.id.sessionTextDate);
-            icon = itemView.findViewById(R.id.iconSessionCard);
+            bookingsName = itemView.findViewById(R.id.bookingTextLessonName);
+            date = itemView.findViewById(R.id.bookingTextDate);
+            icon = itemView.findViewById(R.id.iconBookingCard);
             itemView.setOnClickListener(this);
         }
 
         @SuppressLint("ResourceAsColor")
         public void bind(int position) {
-            sessionLessonName.setText(sessions.get(position).getLessonName());
-            String dateFormat = ""+sessions.get(position).getDate(); //TODO : FORMAT DATE
+            bookings.get(position).getSessionId();
+            String name="";
+            bookingsName.setText(name);
+            String dateFormat = ""+bookings.get(position).getBookingDate(); //TODO : FORMAT DATE
             date.setText(dateFormat);
             //int color = Color.rgb(123, 52, 164);
             icon.setEnabled(false);

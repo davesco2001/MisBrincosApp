@@ -44,7 +44,7 @@
     <string name="delete_session">Delete Session</string>
     <string name="show_sessions">Show Sessions</string>
     <string name="edit_session">Edit Session</string>
-    <string name="add_package">Add Package to Student</string>
+    <string name="add_package">Add Package</string>
     <string name="name">Name</string>
     <string name="logout">LogOut</string>
     <string name="lesson_name">Lesson Name</string>
@@ -74,4 +74,7 @@
     <string name="your_lessons_name">Yours Lessons Names</string>
     <string name="your_package_id">Your Package Id</string>
     <string name="add_package_to_student">Add Package</string>
+    <string name="book">Book</string>
+    <string name="booking_name">Booking Name</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddPackageToStudentsActivity"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    tools:context=".AddPackageToStudentsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_add_package_to_student"
@@ -273,7 +273,7 @@
         android:layout_marginStart="161dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="30dp"
-        android:width="400dp"
+        android:width="200dp"
         android:background="@drawable/rounded_corner"
         android:fontFamily="@font/nunito_bold"
         android:text="@string/add_package"

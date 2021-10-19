@@ -42,7 +42,7 @@
     <string name="delete_session">Eliminar Sesión</string>
     <string name="show_sessions">Mostrar Sesiones</string>
     <string name="edit_session">Modificar Sesión</string>
-    <string name="add_package">Añadir Paquete al Alumno</string>
+    <string name="add_package">Añadir Paquete</string>
     <string name="lesson_name">Lesson Name</string>
     <string name="duration">Duration</string>
     <string name="pakcage_plan">Package Plan</string>
@@ -69,4 +69,10 @@
     <string name="your_lessons_name">Yours Lessons Names</string>
     <string name="your_package_id">Your Package Id</string>
     <string name="add_package_to_student">Add Package</string>
+    <string name="your_account">Tu Cuenta</string>
+    <string name="logout">Log Out</string>
+    <string name="name">Nombre</string>
+    <string name="book">Book</string>
+    <string name="booking_name">Booking Name</string>
+    <string name="delete">Delete</string>
 </resources>
