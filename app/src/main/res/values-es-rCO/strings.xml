@@ -75,4 +75,10 @@
     <string name="book">Book</string>
     <string name="booking_name">Booking Name</string>
     <string name="delete">Delete</string>
+    <string name="days_of_duration_of_the_lesson">Days of duration</string>
+    <string name="limit_of_cancelation_days">Limit of days for cancelation</string>
+    <string name="dayOf_week">Day Of Week</string>
+    <string name="hour">Hour</string>
+    <string name="classroom_number">Classroom Number</string>
+    <string name="sessions_id">Sessions Id</string>
 </resources>

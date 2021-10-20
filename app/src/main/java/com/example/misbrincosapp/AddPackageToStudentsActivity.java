@@ -22,13 +22,13 @@ public class AddPackageToStudentsActivity extends AppCompatActivity {
     Button addPackageToStudentButton;
     private static final String[] STUDENTSCC= new String[] {
             "Belgium", "France", "Italy", "Germany", "Spain"
-    };;
+    };
     private static final String[] PACKAGEID= new String[] {
             "Belgium", "France", "Italy", "Germany", "Spain"
-    };;
+    };
     private static final String[] LESSONSNAMES= new String[] {
             "Belgium", "France", "Italy", "Germany", "Spain"
-    };;
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
