@@ -4,6 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".DeletePackagesActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_delete_packages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:backgroundTint="@color/colorWhite"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:collapseIcon="@drawable/icon_vector_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@drawable/ic_delete_black_24dp"
+        app:navigationIcon="@drawable/icon_vector_2"
+        app:title="@string/delete_package"
+        app:titleTextColor="@color/colorRebeccaPurple" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/delete_package"
+        android:textColor="@color/colorRebeccaPurple"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_delete_packages"
+        app:layout_constraintVertical_bias="0.029" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/delete"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:background="@color/colorRebeccaPurple"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.868" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView4"
+        android:layout_width="349dp"
+        android:layout_height="101dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/rounded_corner"
+        android:clickable="false"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.039" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/select_package_id"
+        android:textColor="@color/colorRebeccaPurple"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView4"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView4"
+        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView4"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView4"
+        app:layout_constraintVertical_bias="0.207" />
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView4"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView4"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.421" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

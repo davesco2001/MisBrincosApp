@@ -14,7 +14,7 @@
     <string name="previous">Anterior</string>
     <string name="password">Contraseña</string>
     <string name="welcome_back">Bienvenido</string>
-    <string name="log_in">LogIn</string>
+    <string name="log_in">Iniciar sesión</string>
     <string name="email">Correo</string>
     <string name="ilustration_log_in">Ilsutracion Log In</string>
     <string name="button">Boton</string>
@@ -42,6 +42,7 @@
     <string name="delete_session">Eliminar Sesión</string>
     <string name="show_sessions">Mostrar Sesiones</string>
     <string name="edit_session">Modificar Sesión</string>
+<<<<<<< HEAD
     <string name="add_package">Añadir Paquete</string>
     <string name="lesson_name">Lesson Name</string>
     <string name="duration">Duration</string>
@@ -81,4 +82,25 @@
     <string name="hour">Hour</string>
     <string name="classroom_number">Classroom Number</string>
     <string name="sessions_id">Sessions Id</string>
+=======
+    <string name="add_package">Añadir Paquete al Alumno</string>
+    <string name="edit">Editar</string>
+    <string name="create">Crear</string>
+    <string name="delete">Borrar</string>
+    <string name="create_new_package">Crear un paquete nuevo</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="name">Nombre</string>
+    <string name="package_name">Nombre del Paquete</string>
+    <string name="total_lessons">Total de Lecciones</string>
+    <string name="price">Precio</string>
+    <string name="total_days">Total de Dias</string>
+    <string name="insert_package_name">Ingrese el nombre del plan del paquete</string>
+    <string name="insert_price_package">Ingrese el precio del paquete</string>
+    <string name="select_package_id">Seleccione el ID del paquete</string>
+    <string name="select_session_id">"Seleccione el ID de la sesión "</string>
+    <string name="day">Día</string>
+    <string name="hour">Hora</string>
+    <string name="date">Fecha</string>
+    <string name="classroom_number">Numero del salón</string>
+>>>>>>> dev-laura
 </resources>
