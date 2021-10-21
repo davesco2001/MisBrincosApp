@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    tools:context=".CreatePackagesActivity">
+    tools:context=".ViewStudentActivity"
+    android:background="@color/colorWhite">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_create_packages"
+        android:id="@+id/toolbar_view_student"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
@@ -20,14 +20,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:logo="@drawable/ic_add_circle_outline_black_24dp"
+        app:logo="@drawable/ic_people_black_24dp"
         app:navigationIcon="@drawable/icon_vector_2"
-        app:title="@string/create_package"
+        app:title="@string/student"
         app:titleTextColor="@color/colorRebeccaPurple" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewCreateNamePackage"
-        style="@style/CardViewStyleMisBrincos"
+        android:id="@+id/cardViewViewStudentName"
+        style="@style/Theme.MisBrincosApp"
         android:layout_width="338dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
@@ -40,20 +40,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_create_packages"
-        app:layout_constraintVertical_bias="0.022">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_view_student"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
+            style="@style/CardViewStyleMisBrincos"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/NamePackage"
+                android:id="@+id/viewStudentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_bold"
-                android:text="@string/package_name"
+                android:text="@string/name"
                 android:textColor="@color/colorRebeccaPurple"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -65,7 +65,7 @@
                 app:layout_constraintVertical_bias="0.068" />
 
             <ImageButton
-                android:id="@+id/iconCardCreatePakcageName"
+                android:id="@+id/iconCardViewStudentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -78,38 +78,104 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
 
-            <EditText
-                android:id="@+id/inputPackageName"
+            <TextView
+                android:id="@+id/viewTextStudentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="28dp"
-                android:backgroundTint="@color/colorDeminBlue"
-                android:ems="10"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginEnd="185dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/nunito"
-                android:hint="@string/insert_package_name"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                android:singleLine="true"
                 android:textColor="@color/colorDeminBlue"
-                android:textColorHint="@color/colorDeminBlue"
-                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/iconCardCreatePakcageName"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toStartOf="@+id/iconCardViewStudentName"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/NamePackage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewViewStudentCc"
+        style="@style/Theme.MisBrincosApp"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="47dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewViewStudentName"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/CardViewStyleMisBrincos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/viewStudentCc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/student_s_cc"
+                android:textColor="@color/colorRebeccaPurple"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.079"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.068" />
+
+            <ImageButton
+                android:id="@+id/iconCardViewStudentCc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/icon_card_item_without_icon"
+                android:contentDescription="@string/icon_card_base"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.954"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/viewTextStudentCc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginEnd="185dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/nunito"
+                android:textColor="@color/colorDeminBlue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iconCardViewStudentCc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewCreateTotalOfLessonsPackage"
-        style="@style/CardViewStyleMisBrincos"
+        android:id="@+id/cardViewViewStudentEmail"
+        style="@style/Theme.MisBrincosApp"
         android:layout_width="338dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
@@ -120,22 +186,22 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewCreateNamePackage"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewViewStudentCc"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
+            style="@style/CardViewStyleMisBrincos"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/TotalOfLessonsPackage"
+                android:id="@+id/viewStudentEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_bold"
-                android:text="@string/total_lessons"
+                android:text="@string/email"
                 android:textColor="@color/colorRebeccaPurple"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -147,7 +213,7 @@
                 app:layout_constraintVertical_bias="0.068" />
 
             <ImageButton
-                android:id="@+id/iconCardCreatePakcageTotalOfLesson"
+                android:id="@+id/iconCardViewStudentEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -160,39 +226,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
 
-            <EditText
-                android:id="@+id/inputPackageTotalOfLessons"
+            <TextView
+                android:id="@+id/viewTextStudentEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="28dp"
-                android:backgroundTint="@color/colorDeminBlue"
-                android:ems="10"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginEnd="185dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/nunito"
-                android:hint="@string/total_lessons"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:singleLine="true"
                 android:textColor="@color/colorDeminBlue"
-                android:textColorHint="@color/colorDeminBlue"
-                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/iconCardCreatePakcageTotalOfLesson"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toStartOf="@+id/iconCardViewStudentEmail"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TotalOfLessonsPackage"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewCreatePricePackage"
-        style="@style/CardViewStyleMisBrincos"
+        android:id="@+id/cardViewViewStudentPhone"
+        style="@style/Theme.MisBrincosApp"
         android:layout_width="338dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
@@ -203,22 +259,22 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewCreateTotalOfLessonsPackage"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewViewStudentEmail"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
+            style="@style/CardViewStyleMisBrincos"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/PricePackage"
+                android:id="@+id/viewStudentPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_bold"
-                android:text="@string/price"
+                android:text="@string/phone"
                 android:textColor="@color/colorRebeccaPurple"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -230,7 +286,7 @@
                 app:layout_constraintVertical_bias="0.068" />
 
             <ImageButton
-                android:id="@+id/iconCardCreatePakcagePrice"
+                android:id="@+id/iconCardViewStudentPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -243,138 +299,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
-
-            <EditText
-                android:id="@+id/inputPackagePrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="28dp"
-                android:backgroundTint="@color/colorDeminBlue"
-                android:ems="10"
-                android:fontFamily="@font/nunito"
-                android:hint="@string/insert_price_package"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:singleLine="true"
-                android:textColor="@color/colorDeminBlue"
-                android:textColorHint="@color/colorDeminBlue"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/iconCardCreatePakcagePrice"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/PricePackage"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="DuplicateSpeakableTextCheck" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewCreateTotalOfDaysPackage"
-        style="@style/CardViewStyleMisBrincos"
-        android:layout_width="338dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginEnd="47dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewCreatePricePackage"
-        app:layout_constraintVertical_bias="0.0">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
 
             <TextView
-                android:id="@+id/TotalOfDaysPackage"
+                android:id="@+id/viewTextStudentPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_bold"
-                android:text="@string/total_days"
-                android:textColor="@color/colorRebeccaPurple"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.079"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.068" />
-
-            <ImageButton
-                android:id="@+id/iconCardCreatePakcageTotalOfDays"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginEnd="185dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/icon_card_item_without_icon"
-                android:contentDescription="@string/icon_card_base"
+                android:fontFamily="@font/nunito"
+                android:textColor="@color/colorDeminBlue"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.954"
+                app:layout_constraintEnd_toStartOf="@+id/iconCardViewStudentPhone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
-
-            <EditText
-                android:id="@+id/inputPackageTotalOfDays"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="28dp"
-                android:backgroundTint="@color/colorDeminBlue"
-                android:ems="10"
-                android:fontFamily="@font/nunito"
-                android:hint="@string/total_days"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:singleLine="true"
-                android:textColor="@color/colorDeminBlue"
-                android:textColorHint="@color/colorDeminBlue"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/iconCardCreatePakcageTotalOfDays"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TotalOfDaysPackage"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-    <Button
-        android:id="@+id/button_create_packages"
-        style="@style/Widget.AppCompat.ButtonBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="30dp"
-        android:width="200dp"
-        android:background="@drawable/rounded_corner"
-        android:fontFamily="@font/nunito_bold"
-        android:text="@string/create"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorWhite"
-        android:textSize="24sp"
-        android:typeface="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_create_packages"
-        app:layout_constraintVertical_bias="0.966" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

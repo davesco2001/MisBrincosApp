@@ -22,7 +22,7 @@ public class EditStudentsActivity extends AppCompatActivity {
     Button editButton;
     private static final String[] STUDENTSCC= new String[] {
             "Belgium", "France", "Italy", "Germany", "Spain"
-    };;
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
