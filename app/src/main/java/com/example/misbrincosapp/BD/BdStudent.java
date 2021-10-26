@@ -215,6 +215,16 @@ public class BdStudent {
         }
 
     }
+    public void updateStudent(String cc, String phoneNumber) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Alumno SET Telefono="+phoneNumber+"WHERE Cc="+cc+"")) {
+            preparedStatement.executeUpdate();
+        }catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            //        + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+    }
     public void deleteStudent(String cc){
         try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Alumno WHERE Cc="+cc)) {
             preparedStatement.executeUpdate();

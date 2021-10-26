@@ -233,6 +233,16 @@ public class BdPackages {
         }
 
     }
+    public void updatePackage(int id, int totalOfLessons, int totalOfDays) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Paquete SET Cant_clases="+totalOfLessons+", Cant_dias="+totalOfDays+"WHERE Id="+id+"")) {
+            preparedStatement.executeUpdate();
+        }catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            //        + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+    }
     public void deletePackage (int id){
         try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Paquete WHERE Id="+id)) {
             preparedStatement.executeUpdate();
