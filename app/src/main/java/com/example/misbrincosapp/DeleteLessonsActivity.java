@@ -10,18 +10,22 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.misbrincosapp.BD.BdLessons;
+import com.example.misbrincosapp.BD.BdStudent;
+import com.example.misbrincosapp.model.Lesson;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.ArrayList;
 
 public class DeleteLessonsActivity extends AppCompatActivity {
     FirebaseUser currentUser;
     private Toolbar toolbar;
     private FirebaseAuth mAuth;
     Button deleteButton;
-    private static final String[] STUDENTSCC= new String[] {
-            "Belgium", "France", "Italy", "Germany", "Spain"
-    };
+    AutoCompleteTextView autoCompleteTextViewCcLesson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +53,7 @@ public class DeleteLessonsActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             //Get info of student selected
-            setCcStudentOptions();
+            setNameLessonsOptions();
         } else {
             finish();
         }
@@ -71,14 +75,42 @@ public class DeleteLessonsActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                autoCompleteTextViewCcLesson = findViewById(R.id.inputDeleteLessonName);
+                //Use this to do something with the key of the db when you have a autoCompleteTextView
+                String lessonName=autoCompleteTextViewCcLesson.getText().toString();
+                BdLessons bdLessons = new BdLessons();
+                if(bdLessons.getConnection()!=null){
+                    Toast.makeText(DeleteLessonsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+                    bdLessons.deleteLesson(lessonName);
+                    bdLessons.dropConnection();
+                    finish();
+
+                }else{
+                    Toast.makeText(DeleteLessonsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
     }
-    private void setCcStudentOptions() {
+    private void setNameLessonsOptions() {
+        int size=0;
+        ArrayList<String> names = new ArrayList<String>();
+        BdLessons bdLessons = new BdLessons();
+        if(bdLessons.getConnection()!=null){
+            Toast.makeText(DeleteLessonsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            names= bdLessons.searchName();
+            size=names.size();
+        }else{
+            Toast.makeText(DeleteLessonsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
+        final String[] LESSONSNAME = new String[size];
+        for (int i = 0; i <size ; i++) {
+            String name = names.get(i);
+            LESSONSNAME[i]=name;
+        }
         //Change options
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, STUDENTSCC);
+                android.R.layout.simple_dropdown_item_1line, LESSONSNAME);
         AutoCompleteTextView ccStudent = (AutoCompleteTextView)
                 findViewById(R.id.inputDeleteLessonName);
         ccStudent.setAdapter(adapter);

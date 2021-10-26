@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.misbrincosapp.model.Package;
+
 import java.util.ArrayList;
 
 public class PackagesAdapter extends RecyclerView.Adapter<PackagesAdapter.ViewHolderPackages> {

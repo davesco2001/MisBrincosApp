@@ -20,9 +20,6 @@ public class EditStudentsActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private FirebaseAuth mAuth;
     Button editButton;
-    private static final String[] STUDENTSCC= new String[] {
-            "Belgium", "France", "Italy", "Germany", "Spain"
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,16 +69,18 @@ public class EditStudentsActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Search for setNameLessonsOptions in DeleteLessons and the structure of the onClickDelete in the same activity but combined with the create use the logic of both javaclass
             }
         });
     }
     private void setIdStudentOptions() {
+        //Search for setNameLessonsOptions in DeleteLessons and the structure of the onClickDelete in the same activity but combined with the create use the logic of both javaclass
         //Change options
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        /*/final String[] STUDENTSCC= new String[size];
+        /ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, STUDENTSCC);
         AutoCompleteTextView ccStudent = (AutoCompleteTextView)
                 findViewById(R.id.inputStudentsCc);
-        ccStudent.setAdapter(adapter);
+        ccStudent.setAdapter(adapter);*/
     }
 }

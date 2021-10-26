@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.misbrincosapp.model.Package;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -71,19 +72,16 @@ public class ShowPackagesActivity extends AppCompatActivity implements PackagesA
     private void getPackagesToActivity() {
             packages = new ArrayList<Package>();
             //Loop that brings the packages from db
-            PackagesAdapter packagesAdapter = new PackagesAdapter(packages, this);
-            recyclerView.setAdapter(packagesAdapter);
+        setPackagesAdapter(packages);
+    }
+
+    private void setPackagesAdapter(ArrayList<Package> packages) {
+        PackagesAdapter packagesAdapter = new PackagesAdapter(packages, this);
+        recyclerView.setAdapter(packagesAdapter);
     }
 
     @Override
     public void onListItemClick(int clickedItem) {
-        //int size = packages.size();
-        /*for (int i = 0; i < size; i++) {
-            if (i == clickedItem) {
-                //Package packageClicked = packages.getPackages().get(i);
-                Set
-            }
-
-        }*/
+        //Remember to use the intent and send the key of the table to ViewPackageActivity
     }
 }

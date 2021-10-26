@@ -9,7 +9,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.misbrincosapp.BD.BdLessons;
+import com.example.misbrincosapp.model.Lesson;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -23,6 +26,7 @@ public class ShowLessonsActivity extends AppCompatActivity implements LessonsAda
     private FirebaseAuth mAuth;
     private RecyclerView recyclerView;
     ArrayList<Lesson> lessons;
+    BdLessons bdLessons;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,18 +75,47 @@ public class ShowLessonsActivity extends AppCompatActivity implements LessonsAda
     private void getLessonsToActivity() {
         lessons = new ArrayList<Lesson>();
         //Loop that brings the lessons from db
+        bdLessons = new BdLessons();
+        if(bdLessons.getConnection()!=null){
+            Toast.makeText(ShowLessonsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            ArrayList<String> names= bdLessons.searchName();
+            ArrayList<Integer> durations = bdLessons.searchDuration();
+            ArrayList<Integer> limits = bdLessons.searchLimitOfDays();
+            if((names.size()==durations.size())&&(names.size()==limits.size())){
+                for (int i = 0; i <names.size() ; i++) {
+                    String name = names.get(i);
+                    int duration = durations.get(i);
+                    int limit = limits.get(i);
+                    Lesson lesson = new Lesson(name, duration, limit);
+                    lessons.add(lesson);
+                }
+                bdLessons.dropConnection();
+                setLessonsAdapter(lessons);
+            }else{
+                Toast.makeText(ShowLessonsActivity.this, R.string.error_in_consult, Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(ShowLessonsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    private void setLessonsAdapter(ArrayList<Lesson> lessons){
         LessonsAdapter lessonsAdapter = new LessonsAdapter(lessons, this);
         recyclerView.setAdapter(lessonsAdapter);
     }
     @Override
     public void onListItemClick(int clickedItem) {
-        //int size = lessons.size();
-        /*for (int i = 0; i < size; i++) {
+        int size = lessons.size();
+        for (int i = 0; i < size; i++) {
             if (i == clickedItem) {
-                //Lesson lessonsClicked = lessons.getLessons().get(i);
-                Set
+                Lesson lessonClicked = lessons.get(i);
+                String lessonClickedName=lessonClicked.getName();
+                //Intent with the key of the table
+                Intent intent = new Intent(ShowLessonsActivity.this, ViewLessonActivity.class);
+                intent.putExtra("NAME", lessonClickedName);
+                startActivity(intent);
             }
 
-        }*/
+        }
     }
 }
