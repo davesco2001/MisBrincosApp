@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.misbrincosapp.model.Student;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -70,18 +71,17 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
     private void getStudentsToActivity() {
         students = new ArrayList<Student>();
         //Loop that brings the lessons from db
+        //setStudentsAdpater();
+    }
+
+    private void setStudentsAdpater(ArrayList<Student> students) {
         StudentsAdapter studentsAdapter = new StudentsAdapter(students, this);
         recyclerView.setAdapter(studentsAdapter);
     }
+
     @Override
     public void onListItemClick(int clickedItem) {
-        //int size = students.size();
-        /*for (int i = 0; i < size; i++) {
-            if (i == clickedItem) {
-                //Student studentsClicked = students.getStudents().get(i);
-                Set
-            }
+        students = new ArrayList<Student>();
 
-        }*/
     }
 }

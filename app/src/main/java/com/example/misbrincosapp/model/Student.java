@@ -1,4 +1,4 @@
-package com.example.misbrincosapp;
+package com.example.misbrincosapp.model;
 
 public class Student {
     private String name;
@@ -6,7 +6,7 @@ public class Student {
     private String phoneNumber;
     private String email;
 
-    public Student(String name, String cc, String phoneNumber, String email) {
+    public Student(String cc,String name,String phoneNumber, String email) {
         this.name = name;
         this.cc = cc;
         this.phoneNumber = phoneNumber;

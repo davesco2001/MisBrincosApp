@@ -1,4 +1,4 @@
-package com.example.misbrincosapp;
+package com.example.misbrincosapp.model;
 
 public class Package {
     private int id;

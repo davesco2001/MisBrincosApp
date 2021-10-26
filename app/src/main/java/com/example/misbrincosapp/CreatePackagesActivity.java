@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -65,8 +66,22 @@ public class CreatePackagesActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean correctInputs = validationInputs();
+                if(correctInputs){
+                    //Toast.makeText(CreatePackagesActivity.this, R.string.creating_student, Toast.LENGTH_SHORT).show();
+                    dbInteraction();
+                }else{
+                    Toast.makeText(CreatePackagesActivity.this, R.string.bad_inputs, Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
+    }
+
+    private void dbInteraction() {
+    }
+
+    private boolean validationInputs() {
+        return false;
     }
 }

@@ -19,9 +19,7 @@ public class DeletePackagesActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private FirebaseAuth mAuth;
     Button deleteButton;
-    private static final String[] STUDENTSCC= new String[] {
-            "Belgium", "France", "Italy", "Germany", "Spain"
-    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +47,7 @@ public class DeletePackagesActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             //Get info of student selected
-            setCcStudentOptions();
+            setIdPackageOptions();
         } else {
             finish();
         }
@@ -71,16 +69,17 @@ public class DeletePackagesActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Search for setNameLessonsOptions in DeleteLessons and the structure of the onClickDelete in the same activity
             }
         });
     }
-    private void setCcStudentOptions() {
+    private void setIdPackageOptions() {
         //Change options
+        /*final String[] PACKAGEID= new String[size];
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, STUDENTSCC);
+                android.R.layout.simple_dropdown_item_1line, PACKAGEID);
         AutoCompleteTextView idPackage = (AutoCompleteTextView)
                 findViewById(R.id.inputDeletePakcageId);
-        idPackage.setAdapter(adapter);
+        idPackage.setAdapter(adapter);*/
     }
 }

@@ -99,4 +99,11 @@
     <string name="booking_hour">Booking Hour</string>
     <string name="session">Session</string>
     <string name="student">Student</string>
+    <string name="creating_lesson">Creating Lesson</string>
+    <string name="bad_inputs">Wrong inputs, please check</string>
+    <string name="succes_bd_conection">SuccessFul Conection With Bd</string>
+    <string name="nosucces_bd_conection">No SuccessFul Conection With Bd</string>
+    <string name="error_in_consult">Error in Sql Consult</string>
+    <string name="cc_teacher">Cc Teacher</string>
+    <string name="teacher_name">Teacher Name</string>
 </resources>

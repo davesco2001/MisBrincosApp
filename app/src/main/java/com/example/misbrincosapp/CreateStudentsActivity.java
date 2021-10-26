@@ -33,6 +33,7 @@ public class CreateStudentsActivity extends AppCompatActivity {
         super.onResume();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
+
         } else {
             finish();
         }
@@ -65,7 +66,13 @@ public class CreateStudentsActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                /*boolean correctInputs = validationInputs();
+                if(correctInputs) {
+                    dbInteraction();
+                    //addAuthUser(); @Santiago--->este dejemelo a mi que yo se hacer eso
+                }else{
+                    //Add toast
+                }*/
             }
         });
     }
