@@ -106,4 +106,6 @@
     <string name="error_in_consult">Error in Sql Consult</string>
     <string name="cc_teacher">Cc Teacher</string>
     <string name="teacher_name">Teacher Name</string>
+    <string name="lesson">Lesson</string>
+    <string name="id_session">Id Sesión</string>
 </resources>

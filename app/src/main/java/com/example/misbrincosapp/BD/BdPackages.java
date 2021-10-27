@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.example.misbrincosapp.CreateLessonsActivity;
 
 public class BdPackages {
-    private final String url = "jdbc:mysql://sql5.freesqldatabase.com/sql5445661";
+    private final String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5445661?characterEncoding=utf8";
     //Declaramos un objeto de tipo PreparedStatement el cual nos ayudara a preparar los querys que queramos hacer a la BD
     Connection connection = null;
     Toast toast;
@@ -223,7 +223,7 @@ public class BdPackages {
         return arrayList;
     }
     public void addPackage (int id, String plan, int totalOfDays, int totalOfLessons, String price){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Paquete (Id, Plan, Cant_clases, Costo, Cant_dias) VALUES ("+id+","+plan+","+totalOfLessons+","+price+","+totalOfDays+")")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Paquete VALUES ("+id+",'"+plan+"',"+totalOfLessons+",'"+price+"',"+totalOfDays+")")) {
             preparedStatement.executeUpdate();
         }catch (SQLException sqlException) {
             //toast.makeText(createLessonsActivity,"Error en la ejecución:"
@@ -234,7 +234,7 @@ public class BdPackages {
 
     }
     public void updatePackage(int id, int totalOfLessons, int totalOfDays) {
-        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Paquete SET Cant_clases="+totalOfLessons+", Cant_dias="+totalOfDays+"WHERE Id="+id+"")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Paquete SET Cant_clases="+totalOfLessons+", Cant_dias="+totalOfDays+" WHERE Id="+id+"")) {
             preparedStatement.executeUpdate();
         }catch (SQLException sqlException) {
             //toast.makeText(createLessonsActivity,"Error en la ejecución:"

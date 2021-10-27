@@ -1,5 +1,7 @@
 package com.example.misbrincosapp.BD;
 
+import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -9,7 +11,7 @@ import java.sql.PreparedStatement;   //Aqui obtenemos una sintaxis facil de crea
 import java.sql.ResultSet;
 import java.util.ArrayList;
 public class BdClassRoom {
-    private final String url = "jdbc:mysql://sql5.freesqldatabase.com/sql5445661";
+    private final String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5445661?characterEncoding=utf8";
     //Declaramos un objeto de tipo PreparedStatement el cual nos ayudara a preparar los querys que queramos hacer a la BD
     Connection connection = null;
     Toast toast;
@@ -22,6 +24,8 @@ public class BdClassRoom {
             if (connection != null) {
                 //toast.makeText(createLessonsActivity,"Conexión a base de datos funcionando" , Toast.LENGTH_SHORT).show();
                 System.out.println("Conexión a base de datos funcionando");
+            }else{
+                System.out.println("Conexión a base de datos NO funcionando");
             }
         }
         catch (SQLException | ClassNotFoundException e)

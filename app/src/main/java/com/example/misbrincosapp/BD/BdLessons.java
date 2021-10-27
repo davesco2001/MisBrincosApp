@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BdLessons {
-    private final String url = "jdbc:mysql://sql5.freesqldatabase.com/sql5445661";
+    private final String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5445661?characterEncoding=utf8";
     //Declaramos un objeto de tipo PreparedStatement el cual nos ayudara a preparar los querys que queramos hacer a la BD
     Connection connection = null;
     Toast toast;
@@ -22,7 +22,7 @@ public class BdLessons {
 
             connection = DriverManager.getConnection(url, "sql5445661", "af1PYByzIE");    //Apuntamos nuestro objeto con a el intento de conectarse con los parametros o las credenciales que tenemos en MYSQL
             if (connection != null) {
-                toast.makeText(createLessonsActivity,"Conexión a base de datos funcionando" , Toast.LENGTH_SHORT).show();
+                //toast.makeText(createLessonsActivity,"Conexión a base de datos funcionando" , Toast.LENGTH_SHORT).show();
                 System.out.println("Conexión a base de datos funcionando");
             }
         }
@@ -38,7 +38,7 @@ public class BdLessons {
 
     public void dropConnection() {
         connection = null;
-        toast.makeText(createLessonsActivity,"La conexion la BD se ha cerrado" , Toast.LENGTH_SHORT).show();
+        //toast.makeText(createLessonsActivity,"La conexion la BD se ha cerrado" , Toast.LENGTH_SHORT).show();
         System.out.println("La conexion la BD se ha cerrado");
 
     }
@@ -54,8 +54,8 @@ public class BdLessons {
             }
 
         } catch (SQLException sqlException) {
-            toast.makeText(createLessonsActivity,"Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+                    //+ sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
@@ -72,8 +72,6 @@ public class BdLessons {
             }
 
         } catch (SQLException sqlException) {
-            toast.makeText(createLessonsActivity,"Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
@@ -90,8 +88,6 @@ public class BdLessons {
             }
 
         } catch (SQLException sqlException) {
-            toast.makeText(createLessonsActivity,"Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
@@ -99,7 +95,7 @@ public class BdLessons {
     }
     public ArrayList<String> searchLessonName(String nombre) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Nombre FROM Clase WHERE Nombre="+nombre+"";
+        String sql = "SELECT Nombre FROM Clase WHERE Nombre='"+nombre+"'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -108,8 +104,6 @@ public class BdLessons {
             }
 
         } catch (SQLException sqlException) {
-            toast.makeText(createLessonsActivity,"Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
@@ -117,7 +111,7 @@ public class BdLessons {
     }
     public ArrayList<Integer> searchLessonDuration(String nombre) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Duracion FROM Clase WHERE Nombre="+nombre+"";
+        String sql = "SELECT Duracion FROM Clase WHERE Nombre='"+nombre+"'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -126,8 +120,6 @@ public class BdLessons {
             }
 
         } catch (SQLException sqlException) {
-            toast.makeText(createLessonsActivity,"Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
@@ -135,7 +127,7 @@ public class BdLessons {
     }
     public ArrayList<Integer> searchLessonLimitOfDays(String nombre) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT limit_timepo_cancelacion FROM Clase WHERE Nombre="+nombre+"" ;
+        String sql = "SELECT limit_timepo_cancelacion FROM Clase WHERE Nombre='" + nombre + "'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -144,30 +136,24 @@ public class BdLessons {
             }
 
         } catch (SQLException sqlException) {
-            toast.makeText(createLessonsActivity,"Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
         return arrayList;
     }
     public void addLesson (String name, int duration, int limitOfDays){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Clase (Nombre, Duracion, limit_timepo_cancelacion) VALUES ("+name+","+duration+","+limitOfDays+")")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Clase VALUES ('"+name+"',"+duration+","+limitOfDays+")")) {
             preparedStatement.executeUpdate();
         }catch (SQLException sqlException) {
-            toast.makeText(createLessonsActivity,"Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
 
     }
     public void deleteLesson (String name){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Clase WHERE Nombre="+name)) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Clase WHERE Nombre='"+name+"'")) {
             preparedStatement.executeUpdate();
         }catch (SQLException sqlException) {
-            toast.makeText(createLessonsActivity,"Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
