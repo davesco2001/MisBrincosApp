@@ -22,6 +22,8 @@ public class CreateBookingActivity extends AppCompatActivity implements BookingS
     private FirebaseAuth mAuth;
     private RecyclerView recyclerView;
     ArrayList<Session> sessions;
+    String studentId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,9 +68,17 @@ public class CreateBookingActivity extends AppCompatActivity implements BookingS
     private void onBackClick() {
         finish();
     }
+    private void getStudentIdWithEmail(){
+
+    }
     private void getSessionsToActivity() {
         sessions = new ArrayList<Session>();
         //Loop that brings the sessions from db
+
+        setSessionsBookingApater(sessions);
+    }
+
+    private void setSessionsBookingApater(ArrayList<Session> sessions) {
         BookingSessionsAdapter bookingSessionsAdapter = new BookingSessionsAdapter(sessions, this);
         recyclerView.setAdapter(bookingSessionsAdapter);
     }
