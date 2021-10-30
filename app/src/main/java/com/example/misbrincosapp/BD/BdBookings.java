@@ -2,8 +2,6 @@ package com.example.misbrincosapp.BD;
 
 import android.widget.Toast;
 
-import com.example.misbrincosapp.CreateLessonsActivity;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -13,13 +11,13 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
-public class BdSessions {
+public class BdBookings {
     private final String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5445661?characterEncoding=utf8";
     //Declaramos un objeto de tipo PreparedStatement el cual nos ayudara a preparar los querys que queramos hacer a la BD
     Connection connection = null;
     Toast toast;
-    CreateLessonsActivity createLessonsActivity;
-    public BdSessions(){
+    //CreateLessonsActivity createLessonsActivity;
+    public BdBookings(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -45,9 +43,9 @@ public class BdSessions {
         System.out.println("La conexion la BD se ha cerrado");
 
     }
-    public ArrayList<Integer> searchId() {
+    public ArrayList<Integer> searchIds() {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Id FROM Sesion ORDER BY Id" ;
+        String sql = "SELECT Id FROM Reserva ORDER BY Id" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -57,38 +55,54 @@ public class BdSessions {
 
         } catch (SQLException sqlException) {
             //toast.makeText(createLessonsActivity,"Error en la ejecución:"
-            //+ sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
         return arrayList;
     }
-    public ArrayList<Date> searchDate() {
-        ArrayList<Date> arrayList = new ArrayList<Date>();
-        String sql = "SELECT Fecha_sesion FROM Sesion ORDER BY Id" ;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                arrayList.add(resultSet.getDate("Fecha_sesion"));
-            }
-
-        } catch (SQLException sqlException) {
-            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
-            //+ sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-        return arrayList;
-    }
-    public ArrayList<String> searchCcTeacher() {
+    public ArrayList<String> searchAsistances() {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Cc_profesor  FROM Sesion ORDER BY Id" ;
+        String sql = "SELECT Asistencia FROM Reserva ORDER BY Id" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                arrayList.add(resultSet.getString("Cc_profesor"));
+                arrayList.add(resultSet.getString("Asistencia"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<Date> searchSessionDates() {
+        ArrayList<Date> arrayList = new ArrayList<Date>();
+        String sql = "SELECT Fecha_reserva  FROM Reserva ORDER BY Id";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getDate("Fecha_reserva"));
+            }
+
+        } catch (SQLException sqlException) {
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<Integer> searchIdSessions() {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Id_sesion FROM Reserva ORDER BY Id" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Id_sesion"));
             }
 
         } catch (SQLException sqlException) {
@@ -99,9 +113,44 @@ public class BdSessions {
         }
         return arrayList;
     }
-    public ArrayList<Integer> searchClassroomNumber() {
+    public ArrayList<String> searchCcStudents() {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        String sql = "SELECT Cc_alumno FROM Reserva ORDER BY Id";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getString("Cc_alumno"));
+            }
+
+        } catch (SQLException sqlException) {
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+
+    public ArrayList<Integer> searchId(int idBooking) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Numero_salon FROM Sesion ORDER BY Id" ;
+        String sql = "SELECT Id FROM Reserva WHERE Id="+idBooking+"" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Id"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<Integer> searchClassroomNumber(int idBooking) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Sesion.Numero_salon FROM Reserva JOIN Sesion ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Sesion.Id" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -111,51 +160,15 @@ public class BdSessions {
 
         } catch (SQLException sqlException) {
             //toast.makeText(createLessonsActivity,"Error en la ejecución:"
-            //+ sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
         return arrayList;
     }
-    public ArrayList<String> searchDayOfWeek() {
-        ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Dia FROM Realiza ORDER BY Id_sesion" ;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                arrayList.add(resultSet.getString("Dia"));
-            }
-
-        } catch (SQLException sqlException) {
-            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
-            //+ sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-        return arrayList;
-    }
-    public ArrayList<String> searchLessonsName() {
-        ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Nombre_clase FROM Realiza ORDER BY Id_sesion" ;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                arrayList.add(resultSet.getString("Nombre_clase"));
-            }
-
-        } catch (SQLException sqlException) {
-            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
-            //+ sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-        return arrayList;
-    }
-    public ArrayList<Time> searchHour() {
+    public ArrayList<Time> searchHour(int idBooking) {
         ArrayList<Time> arrayList = new ArrayList<Time>();
-        String sql = "SELECT Hora FROM Realiza ORDER BY Id_sesion" ;
+        String sql = "SELECT Realiza.Hora FROM Reserva JOIN Realiza ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Realiza.Id_sesion" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -165,31 +178,51 @@ public class BdSessions {
 
         } catch (SQLException sqlException) {
             //toast.makeText(createLessonsActivity,"Error en la ejecución:"
-            //+ sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
         return arrayList;
     }
-    public ArrayList<String> searchCcTeacher(int id) {
+    public ArrayList<String> searchDay(int idBooking) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Cc_profesor FROM Sesion WHERE Id="+id+"";
+        String sql = "SELECT Realiza.Dia FROM Reserva JOIN Realiza ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Realiza.Id_sesion" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                arrayList.add(resultSet.getString("Cc_profesor"));
+                arrayList.add(resultSet.getString("Dia"));
             }
 
         } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
         return arrayList;
     }
-    public ArrayList<String> searchSessionLessonName(int id) {
+    public ArrayList<String> searchAsistance(int idBooking) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Nombre_clase FROM Realiza WHERE Id_sesion="+id+"";
+        String sql = "SELECT Asistencia FROM Reserva WHERE Id="+idBooking+"" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getString("Asistencia"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<String> searchTeacherName(int idBooking) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        String sql = "SELECT Profesor.Nombre FROM (Reserva JOIN Sesion ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Sesion.Id) JOIN Profesor ON Sesion.Cc_profesor = Profesor.Cc" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -198,19 +231,21 @@ public class BdSessions {
             }
 
         } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
         return arrayList;
     }
-    public ArrayList<Date> searchSessionDate(int id) {
+    public ArrayList<Date> searchSessionDate(int idBooking) {
         ArrayList<Date> arrayList = new ArrayList<Date>();
-        String sql = "SELECT Fecha_sesion FROM Sesion WHERE Id_sesion="+id+"";
+        String sql = "SELECT Fecha_reserva  FROM Reserva WHERE Id="+idBooking+"";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                arrayList.add(resultSet.getDate("Fecha_sesion"));
+                arrayList.add(resultSet.getDate("Fecha_reserva"));
             }
 
         } catch (SQLException sqlException) {
@@ -219,14 +254,32 @@ public class BdSessions {
         }
         return arrayList;
     }
-    public ArrayList<String> searchSessionDayOfWeek(int id) {
+    public ArrayList<Integer> searchIdSession(int idBooking) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Id_sesion FROM Reserva WHERE Id="+idBooking+"" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Id_sesion"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            //+ sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<String> searchCcStudent(int idBooking) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Dia  FROM Realiza WHERE Id_sesion="+id+"";
+        String sql = "SELECT Cc_alumno FROM Reserva WHERE Id="+idBooking+"";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                arrayList.add(resultSet.getString("Dia"));
+                arrayList.add(resultSet.getString("Cc_alumno"));
             }
 
         } catch (SQLException sqlException) {
@@ -235,73 +288,10 @@ public class BdSessions {
         }
         return arrayList;
     }
-    public ArrayList<Time> searchSessionHour(int id) {
-        ArrayList<Time> arrayList = new ArrayList<Time>();
-        String sql = "SELECT Hora FROM Realiza WHERE Id_sesion="+id+"";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
-                arrayList.add(resultSet.getTime("Hora"));
-            }
-
-        } catch (SQLException sqlException) {
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-        return arrayList;
-    }
-    public ArrayList<Integer> searchSessionId(int id) {
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Id FROM Sesion WHERE Id_sesion="+id+"";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                arrayList.add(resultSet.getInt("Id"));
-            }
-
-        } catch (SQLException sqlException) {
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-        return arrayList;
-    }
-    public ArrayList<Integer> searchSessionClassroom(int id) {
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Numero_salon FROM Sesion WHERE Id_sesion="+id+"";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                arrayList.add(resultSet.getInt("Numero_salon"));
-            }
-
-        } catch (SQLException sqlException) {
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-        return arrayList;
-    }
-    public ArrayList<Integer> searchSessionId(String ccStudent) {
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Sesion.Id FROM (((Sesion JOIN Realiza ON Realiza.Id_sesion = Sesion.Id) JOIN Contiene ON Realiza.Nombre_clase = Contiene.Nombre_clase) JOIN Compra On Contiene.Id_paquete = Compra.Id_paquete) WHERE Compra.Cc_alumno = '"+ccStudent+"' ORDER BY Sesion.Id";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                arrayList.add(resultSet.getInt("Id"));
-            }
-
-        } catch (SQLException sqlException) {
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-        return arrayList;
-    }
-    public ArrayList<String> searchSessionLessonsName(String ccStudent) {
+    public ArrayList<String> searchBookingLessonName(int idBooking) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Realiza.Nombre_clase FROM (((Sesion JOIN Realiza ON Realiza.Id_sesion = Sesion.Id) JOIN Contiene ON Realiza.Nombre_clase = Contiene.Nombre_clase) JOIN Compra On Contiene.Id_paquete = Compra.Id_paquete) WHERE Compra.Cc_alumno = '"+ccStudent+"' ORDER BY Sesion.Id";
+        String sql = "SELECT Realiza.Nombre_clase FROM Realiza JOIN Reserva ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Realiza.Id_sesion" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -310,29 +300,69 @@ public class BdSessions {
             }
 
         } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
         return arrayList;
     }
-    public ArrayList<Date> searchSessionDate(String ccStudent) {
+    public ArrayList<Date> searchBookingDate(String ccStudent) {
         ArrayList<Date> arrayList = new ArrayList<Date>();
-        String sql = "SELECT Sesion.Fecha_sesion FROM (((Sesion JOIN Realiza ON Realiza.Id_sesion = Sesion.Id) JOIN Contiene ON Realiza.Nombre_clase = Contiene.Nombre_clase) JOIN Compra On Contiene.Id_paquete = Compra.Id_paquete) WHERE Compra.Cc_alumno = '"+ccStudent+"' ORDER BY Sesion.Id";
+        String sql = "SELECT Fecha_reserva FROM Reserva WHERE Cc_alumno='"+ccStudent+"' ORDER BY Id" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                arrayList.add(resultSet.getDate("Fecha_sesion"));
+                arrayList.add(resultSet.getDate("Fecha_reserva"));
             }
 
         } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
         return arrayList;
     }
-    public void addSession (int id, String fecha, String ccProfesor, int numeroDeSalon){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Sesion VALUES ("+id+",'"+fecha+"','"+ccProfesor+"',"+numeroDeSalon+")")) {
+    public ArrayList<Integer> searchBookingId(String ccStudent) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Id FROM Reserva WHERE Cc_alumno='"+ccStudent+"' ORDER BY Id" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Id"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<String> searchBookingLessonsName(String ccStudent) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        String sql = "SELECT Realiza.Nombre_clase FROM Realiza JOIN Reserva ON Reserva.Cc_alumno = '"+ccStudent+"' AND Reserva.Id_sesion = Realiza.Id_sesion ORDER BY Reserva.Id" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getString("Nombre_clase"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public void addBooking (int id, String asistencia, String date, int idSession, String ccStudent){
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Reserva VALUES ("+id+",'"+asistencia+"','"+date+"',"+idSession+", '"+ccStudent+"')")) {
             preparedStatement.executeUpdate();
         }catch (SQLException sqlException) {
             System.out.println("Error en la ejecución:"
@@ -340,8 +370,8 @@ public class BdSessions {
         }
 
     }
-    public void addRealiza (int id, String dia, String hora, String nombreClase){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Realiza VALUES ("+id+",'"+dia+"','"+hora+"','"+nombreClase+"')")) {
+    public void deleteBooking (int id){
+        try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Reserva WHERE Id="+id+"")) {
             preparedStatement.executeUpdate();
         }catch (SQLException sqlException) {
             System.out.println("Error en la ejecución:"
@@ -349,27 +379,8 @@ public class BdSessions {
         }
 
     }
-
-    public void deleteSession (int id){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Sesion WHERE Id="+id+"")) {
-            preparedStatement.executeUpdate();
-        }catch (SQLException sqlException) {
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-
-    }
-    public void deleteRealiza (int id){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Realiza WHERE Id_sesion="+id+"")) {
-            preparedStatement.executeUpdate();
-        }catch (SQLException sqlException) {
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-
-    }
-    public void updateSesion(int id, String fecha, String ccProfesor, int numerSalon) {
-        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Sesion SET Fecha_sesion='"+fecha+"', Cc_profesor='"+ccProfesor+"' , Numero_salon ="+numerSalon+" WHERE Id="+id+"")) {
+    public void updateBooking(int id, String asistencia) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Reserva SET Asistencia='"+asistencia+"' WHERE Id="+id+"")) {
             preparedStatement.executeUpdate();
         }catch (SQLException sqlException) {
             //toast.makeText(createLessonsActivity,"Error en la ejecución:"

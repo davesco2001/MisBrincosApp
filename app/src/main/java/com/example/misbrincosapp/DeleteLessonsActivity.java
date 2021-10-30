@@ -104,6 +104,7 @@ public class DeleteLessonsActivity extends AppCompatActivity {
             }
         });
     }
+
     private void setNameLessonsOptions() {
         int size=0;
         ArrayList<String> names = new ArrayList<String>();

@@ -186,14 +186,14 @@ public class BdStudent {
         }
         return arrayList;
     }
-    public ArrayList<String> searchStudentNameWithEmail(String email) {
+    public ArrayList<String> searchStudentCcWithEmail(String email) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Nombre FROM Alumno WHERE Correo='"+email+"'";
+        String sql = "SELECT Cc FROM Alumno WHERE Correo='"+email+"'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                arrayList.add(resultSet.getString("Nombre"));
+                arrayList.add(resultSet.getString("Cc"));
             }
 
         } catch (SQLException sqlException) {

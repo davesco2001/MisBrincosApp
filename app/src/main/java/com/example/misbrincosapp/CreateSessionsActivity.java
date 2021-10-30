@@ -58,7 +58,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         setCalendarButton();
         setTimeButton();
-        createButton = (Button) findViewById(R.id.button_create_lessons);
+        createButton = findViewById(R.id.button_create_sessions);
         onClickCreate(createButton);
     }
     @SuppressLint("ResourceType")
@@ -104,6 +104,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
     private void onBackClick() {
         finish();
     }
+
     private void onClickCreate(Button createButton) {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,7 +222,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
     private String getDateOfToday() {
         Calendar today = Calendar.getInstance(TimeZone.getDefault());
         setDate(today);
-        String dateString = (String) DateFormat.format("YYYY-MM-DD", today);
+        String dateString = (String) DateFormat.format("yyyy-MM-dd", today);
         return dateString;
     }
 
@@ -247,7 +248,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
                 date.set(year, month, dayOfMonth, 0, 0);
                 setDate(date);
                 //Db validation
-                String dateString = (String) DateFormat.format("YYYY-MM-DD", date);
+                String dateString = (String) DateFormat.format("yyyy-MM-dd", date);
                 calendarText.setText(dateString);
             }
         }, year, month, day);
