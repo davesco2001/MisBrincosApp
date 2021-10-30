@@ -43,7 +43,6 @@ public class EditSessionsActivity extends AppCompatActivity {
     ImageButton searchButton;
     TextView dayOfWeek;
     TextView hour;
-    TextView timeText;
     private Calendar timeOfEvent;
     AutoCompleteTextView classRoomNumber;
     AutoCompleteTextView ccTeacher;
@@ -132,19 +131,19 @@ public class EditSessionsActivity extends AppCompatActivity {
 
     private void dbInteraction() {
         id = findViewById(R.id.inputEditSessionId);
-        timeText = findViewById(R.id.dateSessionEditText);
+        calendarText = findViewById(R.id.dateSessionEditText);
         classRoomNumber = findViewById(R.id.inputEditSessionsClassRoomNumber);
         ccTeacher = findViewById(R.id.inputEditSessionsTeacher);
 
         int idSes= Integer.parseInt(id.getText().toString());
-        String timeTextS=timeText.getText().toString();
+        String calendarTextS=calendarText.getText().toString();
         int classR=Integer.parseInt(classRoomNumber.getText().toString());
         String ccT= ccTeacher.getText().toString();
 
         bdSessions = new BdSessions();
         if(bdSessions.getConnection()!=null){
             Toast.makeText(EditSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
-            bdSessions.updateSesion(idSes, timeTextS, ccT, classR);
+            bdSessions.updateSesion(idSes, calendarTextS, ccT, classR);
             bdSessions.dropConnection();
             finish();
 
@@ -155,10 +154,10 @@ public class EditSessionsActivity extends AppCompatActivity {
     }
 
     private boolean validationInputs() {
-        timeText = findViewById(R.id.dateSessionEditText);
+        calendarText = findViewById(R.id.dateSessionEditText);
         classRoomNumber = findViewById(R.id.inputEditSessionsClassRoomNumber);
         ccTeacher = findViewById(R.id.inputEditSessionsTeacher);
-        if((timeText.getText().toString().equals(""))&&(classRoomNumber.getText().toString().equals(""))&&(ccTeacher.getText().toString().equals(""))){
+        if((calendarText.getText().toString().equals(""))&&(classRoomNumber.getText().toString().equals(""))&&(ccTeacher.getText().toString().equals(""))){
             return false;
         }else{
             return true;
@@ -236,7 +235,7 @@ public class EditSessionsActivity extends AppCompatActivity {
     private String getDateOfToday() {
         Calendar today = Calendar.getInstance(TimeZone.getDefault());
         setDate(today);
-        String dateString = (String) DateFormat.format("YYYY-MM-DD", today);
+        String dateString = (String) DateFormat.format("yyyy-MM-dd", today);
         return dateString;
     }
     private void setOnDateListen() {
@@ -251,7 +250,7 @@ public class EditSessionsActivity extends AppCompatActivity {
                 date.set(year, month, dayOfMonth, 0, 0);
                 setDate(date);
                 //Db validation
-                String dateString = (String) DateFormat.format("YYYY-MM-DD", date);
+                String dateString = (String) DateFormat.format("yyyy-MM-dd", date);
                 calendarText.setText(dateString);
             }
         }, year, month, day);

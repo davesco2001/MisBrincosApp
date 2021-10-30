@@ -60,6 +60,7 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
         private static final int studentValue = 3;
         private static final int packageValue = 4;
         private static final int bookingValue = 5;
+        private static final int teachersValue = 11;
         //CRUD
         private static final int createValue = 6;
         private static final int showValue = 7;
@@ -119,6 +120,10 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
                 case addPackageToStudent:
                     icon.setEnabled(true);
                     icon.setImageResource(R.drawable.ic_local_mall_black_24dp);
+                    break;
+                case teachersValue:
+                    icon.setEnabled(true);
+                    icon.setImageResource(R.drawable.ic_school_black_24dp);
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + functions.get(position).getType());

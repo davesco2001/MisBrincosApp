@@ -195,12 +195,14 @@ public class CreateSessionsActivity extends AppCompatActivity {
         Calendar time = Calendar.getInstance();
         int HOUR = time.get(Calendar.HOUR);
         int MINUTE = time.get(Calendar.MINUTE);
+        int SECONDS = time.get(Calendar.SECOND);
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 Calendar time = Calendar.getInstance(Locale.getDefault());
                 time.set(Calendar.HOUR_OF_DAY, hourOfDay);
                 time.set(Calendar.MINUTE, minute);
+                time.set(Calendar.SECOND, 0);
                 setTime(time);
                 //Db validation
                 timeText.setText(DateFormat.format("hh:mm:ss", time));

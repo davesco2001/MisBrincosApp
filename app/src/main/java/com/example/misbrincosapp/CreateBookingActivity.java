@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.format.DateFormat;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,8 +55,14 @@ public class CreateBookingActivity extends AppCompatActivity implements BookingS
         super.onResume();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            studentId = getStudentIdWithEmail(currentUser.getEmail());
-            getSessionsToActivity();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                studentId = getStudentIdWithEmail(currentUser.getEmail());
+                getSessionsToActivity();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }
@@ -161,16 +168,21 @@ public class CreateBookingActivity extends AppCompatActivity implements BookingS
                 //use studentId
                 //Intent with the key of the table
                 //Bd create bookings
-                bdBookings = new BdBookings();
-                if(bdBookings.getConnection()!=null){
-                    Toast.makeText(CreateBookingActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
-                    bdBookings.addBooking(id, asistencia, now, sessionClickedId, studentId);
-                    bdBookings.dropConnection();
-                    finish();
-                }else{
-                    Toast.makeText(CreateBookingActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                try {
+                    bdBookings = new BdBookings();
+                    if(bdBookings.getConnection()!=null){
+                        Toast.makeText(CreateBookingActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+                        bdBookings.addBooking(id, asistencia, now, sessionClickedId, studentId);
+                        bdBookings.dropConnection();
+                        finish();
+                    }else{
+                        Toast.makeText(CreateBookingActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
             }
         }
     }

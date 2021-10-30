@@ -110,4 +110,7 @@
     <string name="id_session">Id Sesión</string>
     <string name="show_teachers">Show Teachers</string>
     <string name="lessons">Lessons</string>
+    <string name="total_time_of_package">Total Time of Package</string>
+    <string name="teacher_funtions">Teachers</string>
+    <string name="teacher_functions">Teachers</string>
 </resources>

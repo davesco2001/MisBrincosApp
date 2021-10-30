@@ -73,6 +73,7 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/icon_card_item"
                 android:contentDescription="@string/icon_card_base"
+                android:src="@drawable/ic_search_black_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.954"
