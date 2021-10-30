@@ -113,4 +113,9 @@
     <string name="total_time_of_package">Total Time of Package</string>
     <string name="teacher_funtions">Teachers</string>
     <string name="teacher_functions">Teachers</string>
+    <string name="package_">Paquete</string>
+    <string name="create_teacher">Crear Profesor</string>
+    <string name="edit_teacher">Modificar Profesor</string>
+    <string name="delete_teacher">Eliminar Profesor</string>
+    <string name="creating_student">Creating Student</string>
 </resources>
