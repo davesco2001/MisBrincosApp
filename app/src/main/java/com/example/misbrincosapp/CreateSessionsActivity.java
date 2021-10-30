@@ -315,7 +315,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, CCTEACHERS);
         AutoCompleteTextView idSession = (AutoCompleteTextView)
-                findViewById(R.id.inputEditSessionsTeacher);
+                findViewById(R.id.inputSessionsCcTeacher);
         idSession.setAdapter(adapter);
     }
     private void setIdClassRoomNumberptions() {

@@ -155,7 +155,7 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
                         startActivity(intent);
                     }
                     if (name.equals(getString(R.string.teacher_functions))) {
-                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, PackagesActivity.class);
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, TeacherActivity.class);
                         startActivity(intent);
                     }
                 }
