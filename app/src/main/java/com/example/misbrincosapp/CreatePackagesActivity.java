@@ -8,8 +8,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.misbrincosapp.BD.BdLessons;
+import com.example.misbrincosapp.BD.BdPackages;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -18,7 +21,11 @@ public class CreatePackagesActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private FirebaseAuth mAuth;
     Button createButton;
-
+    EditText namePackage;
+    EditText totalLessons;
+    EditText price;
+    EditText totalDays;
+    BdPackages bdPackages;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,9 +86,38 @@ public class CreatePackagesActivity extends AppCompatActivity {
     }
 
     private void dbInteraction() {
+        namePackage = (EditText) findViewById(R.id.inputPackageName);
+        totalLessons = (EditText) findViewById(R.id.inputPackageTotalOfLessons);
+        price = (EditText) findViewById(R.id.inputPackagePrice);
+        totalDays = (EditText) findViewById(R.id.inputPackageTotalOfDays);
+        int id = (int) (Math.random() * (200-1)) + 1;
+        String plan = namePackage.getText().toString();
+        int tLessons = Integer.parseInt(totalLessons.getText().toString());
+        String pPrice = price.getText().toString();
+        int tDays = Integer.parseInt(totalDays.getText().toString());
+        bdPackages = new BdPackages();
+        if(bdPackages.getConnection()!=null){
+            Toast.makeText(CreatePackagesActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            bdPackages.addPackage(id, plan, tDays, tLessons, pPrice);
+            bdPackages.dropConnection();
+            finish();
+
+        }else{
+            Toast.makeText(CreatePackagesActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean validationInputs() {
-        return false;
+        namePackage = (EditText) findViewById(R.id.inputPackageName);
+        totalLessons = (EditText) findViewById(R.id.inputPackageTotalOfLessons);
+        price = (EditText) findViewById(R.id.inputPackagePrice);
+        totalDays = (EditText) findViewById(R.id.inputPackageTotalOfDays);
+        String nameInput=namePackage.getText().toString();
+        //Validate that inputs are empty
+        if((namePackage.getText().toString().equals(""))&&(nameInput.length()>10)&&(totalLessons.getText().toString().equals(""))&&(price.getText().toString().equals(""))&&(totalDays.getText().toString().equals(""))){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

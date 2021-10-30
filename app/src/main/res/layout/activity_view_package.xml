@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:logo="@drawable/ic_local_mall_black_24dp"
         app:navigationIcon="@drawable/icon_vector_2"
-        app:title="@string/student"
+        app:title="@string/package_"
         app:titleTextColor="@color/colorRebeccaPurple" />
 
     <androidx.cardview.widget.CardView

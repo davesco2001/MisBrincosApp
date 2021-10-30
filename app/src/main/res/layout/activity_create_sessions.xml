@@ -79,7 +79,7 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/inputSessionsName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,12 +87,13 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="28dp"
                 android:backgroundTint="@color/colorDeminBlue"
-                android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
                 android:ems="10"
                 android:fontFamily="@font/nunito"
                 android:hint="@string/lesson_name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
                 android:minHeight="48dp"
-                android:singleLine="false"
+                android:singleLine="true"
                 android:textColor="@color/colorDeminBlue"
                 android:textColorHint="@color/colorDeminBlue"
                 android:textSize="18sp"

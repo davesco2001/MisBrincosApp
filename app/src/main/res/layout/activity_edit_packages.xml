@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_bold"
-                android:text="@string/Cc"
+                android:text="@string/pakcage_title_id"
                 android:textColor="@color/colorRebeccaPurple"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/icon_card_item_without_icon"
+                android:background="@drawable/icon_card_item"
                 android:contentDescription="@string/icon_card_base"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+                tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck"
+                tools:src="@drawable/ic_search_black_24dp" />
 
             <AutoCompleteTextView
                 android:id="@+id/inputPackageId"
