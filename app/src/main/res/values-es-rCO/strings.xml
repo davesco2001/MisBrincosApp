@@ -124,4 +124,6 @@
     <string name="hour">Hora</string>
     <string name="date">Fecha</string>
     <string name="classroom_number">Numero del salón</string>
+    <string name="sign_up_failed">Create Students Credential Failed</string>
+    <string name="sign_up_succes">Create Students Credentias Succesful</string>
 </resources>

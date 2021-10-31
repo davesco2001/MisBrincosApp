@@ -46,6 +46,8 @@ public class EditTeachersActivity extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         editButton = (Button) findViewById(R.id.button_edit_teachers);
         onClickEdit(editButton);
+        searchButton = findViewById(R.id.iconCardEditTeacherCc);
+        onSearchcc(searchButton);
     }
 
     @SuppressLint("ResourceType")
@@ -66,7 +68,13 @@ public class EditTeachersActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             //Get info of student selected
-            setIdTeacherOptions();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                setIdTeacherOptions();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }

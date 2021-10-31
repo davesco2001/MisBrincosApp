@@ -88,7 +88,6 @@ public class CreateTeachersActivity extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    //addAuthUser(); @Santiago--->este dejemelo a mi que yo se hacer eso
                 }else{
                     Toast.makeText(CreateTeachersActivity.this, R.string.bad_inputs, Toast.LENGTH_SHORT).show();
                 }

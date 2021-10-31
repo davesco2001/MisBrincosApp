@@ -1,11 +1,13 @@
 package com.example.misbrincosapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +16,13 @@ import android.widget.Toast;
 
 import com.example.misbrincosapp.BD.BdLessons;
 import com.example.misbrincosapp.BD.BdStudent;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthRecentLoginRequiredException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class CreateStudentsActivity extends AppCompatActivity {
@@ -85,7 +93,6 @@ public class CreateStudentsActivity extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    //addAuthUser(); @Santiago--->este dejemelo a mi que yo se hacer eso
                 }else{
                     Toast.makeText(CreateStudentsActivity.this, R.string.bad_inputs, Toast.LENGTH_SHORT).show();
                 }
@@ -106,6 +113,7 @@ public class CreateStudentsActivity extends AppCompatActivity {
         if(bdStudent.getConnection()!=null){
             Toast.makeText(CreateStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             bdStudent.addStudent(name ,cedula ,tel, emailS);
+            singUp(emailS, cedula);
             bdStudent.dropConnection();
             finish();
 
@@ -126,6 +134,36 @@ public class CreateStudentsActivity extends AppCompatActivity {
         }else{
             return true;
         }
+    }
+    private void singUp(String emailInput, String passwordInput){
+        mAuth.createUserWithEmailAndPassword(emailInput, passwordInput).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    FirebaseUser user= mAuth.getCurrentUser();
+                    String uId= user.getUid();
+                    Toast.makeText(CreateStudentsActivity.this, R.string.sign_up_succes, Toast.LENGTH_SHORT).show();
+                }else{
+                    try {
+                        throw task.getException();
+                    }catch (FirebaseAuthRecentLoginRequiredException e){
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        AuthCredential credential = EmailAuthProvider
+                                .getCredential(emailInput, passwordInput);
+                        user.reauthenticate(credential)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Log.d("TAG", "User re-authenticated.");
+                                    }
+                                });
+                    } catch (Exception e) {
+                        Toast.makeText(CreateStudentsActivity.this, R.string.sign_up_failed, Toast.LENGTH_SHORT).show();
+                        Log.e("TAG", e.getMessage());
+                    }
+                }
+            }
+        });
     }
 
 }

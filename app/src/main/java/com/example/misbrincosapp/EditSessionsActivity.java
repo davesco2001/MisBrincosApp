@@ -88,8 +88,6 @@ public class EditSessionsActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            setIdClassRoomNumberptions();
         } else {
             finish();
         }

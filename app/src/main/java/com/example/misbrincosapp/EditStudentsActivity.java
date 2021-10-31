@@ -6,7 +6,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.text.format.DateFormat;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,13 +16,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.misbrincosapp.BD.BdSessions;
 import com.example.misbrincosapp.BD.BdStudent;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class EditStudentsActivity extends AppCompatActivity {
 
@@ -32,9 +29,9 @@ public class EditStudentsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Button editButton;
     ImageButton searchButton;
-    TextView namestudent;
+    TextView nameStudent;
     TextView cc;
-    TextView phonenumber;
+    TextView phoneNumber;
     TextView email;
     AutoCompleteTextView ccStudent;
     EditText telS;
@@ -49,6 +46,8 @@ public class EditStudentsActivity extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         editButton = (Button) findViewById(R.id.button_edit_students);
         onClickEdit(editButton);
+        searchButton = findViewById(R.id.iconCardEditStudentCc);
+        onSearchcc(searchButton);
     }
 
     @SuppressLint("ResourceType")
@@ -69,7 +68,13 @@ public class EditStudentsActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             //Get info of student selected
-            setIdStudentOptions();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                setIdStudentOptions();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }
@@ -117,7 +122,7 @@ public class EditStudentsActivity extends AppCompatActivity {
         telS = findViewById(R.id.inputEditStudentsPhone);
 
         String ccS = cc.getText().toString();
-        String telS = phonenumber.getText().toString();
+        String telS = phoneNumber.getText().toString();
 
         bdStudent = new BdStudent();
         if (bdStudent.getConnection() != null) {
@@ -214,13 +219,11 @@ public class EditStudentsActivity extends AppCompatActivity {
                 telS = findViewById(R.id.inputEditStudentsPhone);
 
                 String name = searchStudentname(keyStudent);
-                namestudent.setText(name);
+                nameStudent.setText(name);
                 String tel = searchStudentPhoneNumber(keyStudent);
-                phonenumber.setText(tel);
+                phoneNumber.setText(tel);
                 String emailS = searchStudentemail(keyStudent);
                 email.setText(emailS);
-
-
             }
         });
     }

@@ -126,4 +126,6 @@
     <string name="dayOf_week_and_hour">Day Of Week And Hour</string>
     <string name="assistance">Assistance</string>
     <string name="teacher">Teacher</string>
+    <string name="sign_up_failed">Create Students Credential Failed</string>
+    <string name="sign_up_succes">Create Students Credentias Succesful</string>
 </resources>

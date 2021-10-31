@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -45,7 +46,13 @@ public class ShowTeachersActivity extends AppCompatActivity implements TeachersA
         super.onResume();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            //getTeachersToActivity();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                getTeachersToActivity();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }

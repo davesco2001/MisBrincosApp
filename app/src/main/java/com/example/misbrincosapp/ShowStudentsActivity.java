@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -44,7 +45,13 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
         super.onResume();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            getStudentsToActivity();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                getStudentsToActivity();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }
