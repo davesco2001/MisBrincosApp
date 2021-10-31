@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -74,7 +75,13 @@ public class CreateLessonsActivity extends AppCompatActivity {
                 boolean correctInputs = validationInputs();
                 if(correctInputs){
                     Toast.makeText(CreateLessonsActivity.this, R.string.creating_lesson, Toast.LENGTH_SHORT).show();
-                    dbInteraction();
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    try {
+                        dbInteraction();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }else{
                     Toast.makeText(CreateLessonsActivity.this, R.string.bad_inputs, Toast.LENGTH_SHORT).show();
                 }

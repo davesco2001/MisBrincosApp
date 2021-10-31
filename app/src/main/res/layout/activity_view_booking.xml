@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ViewBookingActivity"
     android:background="@color/colorWhite">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_view_booking"
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:logo="@drawable/ic_today_black_24dp"
+        app:menu="@menu/menu"
         app:navigationIcon="@drawable/icon_vector_2"
         app:title="@string/booking"
         app:titleTextColor="@color/colorRebeccaPurple" />

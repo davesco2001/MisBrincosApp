@@ -3,23 +3,28 @@ package com.example.misbrincosapp.model;
 import java.util.Date;
 
 public class Booking {
-    private String bookingId;
-    private boolean assitance;
+    private int bookingId;
+    private String lessonName;
     private Date bookingDate;
     private int sessionId;
-
-    public Booking(String bookingId, boolean assitance, Date bookingDate, int sessionId) {
+    private boolean assistance;
+    public Booking(int bookingId, String lessonName, Date bookingDate, int sessionId) {
         this.bookingId = bookingId;
-        this.assitance = assitance;
+        this.lessonName = lessonName;
         this.bookingDate = bookingDate;
         this.sessionId = sessionId;
     }
-    public String getBookingId() {
+    public Booking(int bookingId, String lessonName, Date bookingDate) {
+        this.bookingId = bookingId;
+        this.lessonName = lessonName;
+        this.bookingDate = bookingDate;
+    }
+    public int getBookingId() {
         return bookingId;
     }
 
-    public boolean isAssitance() {
-        return assitance;
+    public String getLessonName() {
+        return lessonName;
     }
 
     public Date getBookingDate() {

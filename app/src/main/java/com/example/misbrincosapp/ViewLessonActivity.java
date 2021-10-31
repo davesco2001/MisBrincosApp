@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,14 @@ public class ViewLessonActivity extends AppCompatActivity {
         super.onResume();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            getLessonToActivity();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                getLessonToActivity();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         } else {
             finish();
         }

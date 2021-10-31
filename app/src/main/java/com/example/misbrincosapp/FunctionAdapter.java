@@ -60,6 +60,7 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
         private static final int studentValue = 3;
         private static final int packageValue = 4;
         private static final int bookingValue = 5;
+        private static final int teachersValue = 11;
         //CRUD
         private static final int createValue = 6;
         private static final int showValue = 7;
@@ -67,6 +68,7 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
         private static final int deleteValue = 9;
         //EXTERNAL FUNCTIONS
         private static final int addPackageToStudent = 10;
+        private static final int shoppingsValue = 12;
 
         public ViewHolderFunctions( @NonNull View itemView){
             super(itemView);
@@ -117,6 +119,14 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
                     icon.setImageResource(R.drawable.ic_delete_black_24dp);
                     break;
                 case addPackageToStudent:
+                    icon.setEnabled(true);
+                    icon.setImageResource(R.drawable.ic_local_mall_black_24dp);
+                    break;
+                case teachersValue:
+                    icon.setEnabled(true);
+                    icon.setImageResource(R.drawable.ic_school_black_24dp);
+                    break;
+                case shoppingsValue:
                     icon.setEnabled(true);
                     icon.setImageResource(R.drawable.ic_local_mall_black_24dp);
                     break;

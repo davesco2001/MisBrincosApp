@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -53,7 +54,13 @@ public class DeleteLessonsActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             //Get info of student selected
-            setNameLessonsOptions();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                setNameLessonsOptions();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }
@@ -78,20 +85,26 @@ public class DeleteLessonsActivity extends AppCompatActivity {
                 autoCompleteTextViewCcLesson = findViewById(R.id.inputDeleteLessonName);
                 //Use this to do something with the key of the db when you have a autoCompleteTextView
                 String lessonName=autoCompleteTextViewCcLesson.getText().toString();
-                BdLessons bdLessons = new BdLessons();
-                if(bdLessons.getConnection()!=null){
-                    Toast.makeText(DeleteLessonsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
-                    bdLessons.deleteLesson(lessonName);
-                    bdLessons.dropConnection();
-                    finish();
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                try {
+                    BdLessons bdLessons = new BdLessons();
+                    if(bdLessons.getConnection()!=null){
+                        Toast.makeText(DeleteLessonsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+                        bdLessons.deleteLesson(lessonName);
+                        bdLessons.dropConnection();
+                        finish();
 
-                }else{
-                    Toast.makeText(DeleteLessonsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(DeleteLessonsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
             }
         });
     }
+
     private void setNameLessonsOptions() {
         int size=0;
         ArrayList<String> names = new ArrayList<String>();

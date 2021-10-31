@@ -2,6 +2,7 @@ package com.example.misbrincosapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +67,7 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         @SuppressLint("ResourceAsColor")
         public void bind(int position) {
             sessionLessonName.setText(sessions.get(position).getLessonName());
-            String dateFormat = ""+sessions.get(position).getDate(); //TODO : FORMAT DATE
+            String dateFormat = (String) DateFormat.format("YYYY-MM-DD", sessions.get(position).getDate());
             date.setText(dateFormat);
             //int color = Color.rgb(123, 52, 164);
             icon.setEnabled(false);

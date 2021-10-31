@@ -50,7 +50,6 @@
     <string name="student_name">Student Name</string>
     <string name="Cc">Cc</string>
     <string name="session_lessons_name">Session Name</string>
-    <string name="date">Date</string>
     <string name="your_name">Your name</string>
     <string name="student_s_name">Student\'s Name</string>
     <string name="your_cc">Your Cc</string>
@@ -77,8 +76,6 @@
     <string name="days_of_duration_of_the_lesson">Days of duration</string>
     <string name="limit_of_cancelation_days">Limit of days for cancelation</string>
     <string name="dayOf_week">Day Of Week</string>
-    <string name="hour">Hour</string>
-    <string name="classroom_number">Classroom Number</string>
     <string name="sessions_id">Sessions Id</string>
     <string name="add_package">Añadir Paquete al Alumno</string>
     <string name="create_new_package">Crear un paquete nuevo</string>
@@ -106,4 +103,27 @@
     <string name="error_in_consult">Error in Sql Consult</string>
     <string name="cc_teacher">Cc Teacher</string>
     <string name="teacher_name">Teacher Name</string>
+    <string name="lesson">Lesson</string>
+    <string name="id_session">Id Sesión</string>
+    <string name="show_teachers">Show Teachers</string>
+    <string name="lessons">Lessons</string>
+    <string name="total_time_of_package">Total Time of Package</string>
+    <string name="teacher_funtions">Teachers</string>
+    <string name="teacher_functions">Teachers</string>
+    <string name="package_">Paquete</string>
+    <string name="create_teacher">Crear Profesor</string>
+    <string name="edit_teacher">Modificar Profesor</string>
+    <string name="delete_teacher">Eliminar Profesor</string>
+    <string name="creating_student">Creating Student</string>
+    <string name="total_sold">Total Sold</string>
+    <string name="shoppings">Shoppings</string>
+    <string name="final_date">Final Date</string>
+    <string name="dayOf_week_and_hour">Day Of Week And Hour</string>
+    <string name="assistance">Assistance</string>
+    <string name="teacher">Profesor</string>
+    <string name="hour">Hora</string>
+    <string name="date">Fecha</string>
+    <string name="classroom_number">Numero del salón</string>
+    <string name="sign_up_failed">Create Students Credential Failed</string>
+    <string name="sign_up_succes">Create Students Credentias Succesful</string>
 </resources>

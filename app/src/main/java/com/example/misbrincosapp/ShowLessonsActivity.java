@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.example.misbrincosapp.model.Lesson;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ShowLessonsActivity extends AppCompatActivity implements LessonsAdapter.ListItemClick {
@@ -42,7 +44,13 @@ public class ShowLessonsActivity extends AppCompatActivity implements LessonsAda
         super.onResume();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            getLessonsToActivity();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                getLessonsToActivity();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }

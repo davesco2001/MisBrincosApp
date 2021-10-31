@@ -22,6 +22,11 @@ public class Session {
         this.roomNumber = roomNumber;
         this.typeOfRoom = typeOfRoom;
     }
+    public Session(int id, String lessonName, Date date){
+        this.id = id;
+        this.lessonName = lessonName;
+        this.date = date;
+    }
 
     public int getId() {
         return id;

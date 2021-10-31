@@ -12,7 +12,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 public class BdPurchase {
-    private final String url = "jdbc:mysql://sql5.freesqldatabase.com/sql5445661";
+    private final String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5445661?characterEncoding=utf8";
     //Declaramos un objeto de tipo PreparedStatement el cual nos ayudara a preparar los querys que queramos hacer a la BD
     Connection connection = null;
     Toast toast;

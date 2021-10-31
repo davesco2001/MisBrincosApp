@@ -29,6 +29,7 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
     private static final int studentValue = 3;
     private static final int packageValue = 4;
     private static final int bookingValue = 5;
+    private static final int teachersValue = 11;
     //CRUD
     private static final int createValue = 6;
     private static final int showValue = 7;
@@ -115,6 +116,7 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
         functionsAdmin.add(new Function(getString(R.string.sessions_functions), sessionValue));
         functionsAdmin.add(new Function(getString(R.string.students_function), studentValue));
         functionsAdmin.add(new Function(getString(R.string.packages_function), packageValue));
+        functionsAdmin.add(new Function(getString(R.string.teacher_functions), teachersValue));
         FunctionAdapter functionAdapter = new FunctionAdapter(functionsAdmin, this);
         recyclerView.setAdapter(functionAdapter);
     }
@@ -150,6 +152,10 @@ public class MisBrincosAppHomeActivity extends AppCompatActivity implements Func
                     }
                     if (name.equals(getString(R.string.packages_function))) {
                         Intent intent = new Intent(MisBrincosAppHomeActivity.this, PackagesActivity.class);
+                        startActivity(intent);
+                    }
+                    if (name.equals(getString(R.string.teacher_functions))) {
+                        Intent intent = new Intent(MisBrincosAppHomeActivity.this, TeacherActivity.class);
                         startActivity(intent);
                     }
                 }
