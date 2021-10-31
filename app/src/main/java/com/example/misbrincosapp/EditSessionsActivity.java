@@ -49,6 +49,7 @@ public class EditSessionsActivity extends AppCompatActivity {
     AutoCompleteTextView id;
     Calendar dateOfSession;
     BdSessions bdSessions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,7 +128,7 @@ public class EditSessionsActivity extends AppCompatActivity {
             }
         });
     }
-
+//BASE
     private void dbInteraction() {
         id = findViewById(R.id.inputEditSessionId);
         calendarText = findViewById(R.id.dateSessionEditText);
@@ -151,7 +152,7 @@ public class EditSessionsActivity extends AppCompatActivity {
         }
 
     }
-
+//BASE
     private boolean validationInputs() {
         calendarText = findViewById(R.id.dateSessionEditText);
         classRoomNumber = findViewById(R.id.inputEditSessionsClassRoomNumber);
@@ -163,6 +164,7 @@ public class EditSessionsActivity extends AppCompatActivity {
         }
 
     }
+    //BASE
     private void onSearchId(ImageButton searchButton){
         searchButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -280,7 +282,7 @@ public class EditSessionsActivity extends AppCompatActivity {
             }
         });
     }
-
+//BASE
     private void setIdSessionsOptions() {
         //Change options
         int size=0;

@@ -5,10 +5,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.misbrincosapp.BD.BdLessons;
+import com.example.misbrincosapp.BD.BdStudent;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -17,6 +22,11 @@ public class CreateStudentsActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private FirebaseAuth mAuth;
     Button createButton;
+    EditText nameStudent;
+    EditText cc;
+    EditText phoneNumber;
+    EditText email;
+    BdStudent bdStudent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,14 +76,56 @@ public class CreateStudentsActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*boolean correctInputs = validationInputs();
-                if(correctInputs) {
-                    dbInteraction();
+                boolean correctInputs = validationInputs();
+                if(correctInputs) { if(correctInputs){
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    try {
+                        dbInteraction();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     //addAuthUser(); @Santiago--->este dejemelo a mi que yo se hacer eso
                 }else{
-                    //Add toast
-                }*/
+                    Toast.makeText(CreateStudentsActivity.this, R.string.bad_inputs, Toast.LENGTH_SHORT).show();
+                }
+                }
             }
-        });
+        })
+        ;}
+    private void dbInteraction() {
+        nameStudent = (EditText) findViewById(R.id.inputStudentsName);
+        cc = (EditText) findViewById(R.id.inputStudentsCc);
+        phoneNumber = (EditText) findViewById(R.id.inputStudentsPhone);
+        email = (EditText) findViewById(R.id.inputStudentsEmail);
+        String name = nameStudent.getText().toString();
+        String emailS = email.getText().toString();
+        String  cedula = cc.getText().toString();
+        String  tel = phoneNumber.getText().toString();
+        bdStudent = new BdStudent();
+        if(bdStudent.getConnection()!=null){
+            Toast.makeText(CreateStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            bdStudent.addStudent(name ,cedula ,tel, emailS);
+            bdStudent.dropConnection();
+            finish();
+
+        }else{
+            Toast.makeText(CreateStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
     }
+
+    private boolean validationInputs() {
+        nameStudent = (EditText) findViewById(R.id.inputStudentsName);
+        cc = (EditText) findViewById(R.id.inputStudentsCc);
+        phoneNumber = (EditText) findViewById(R.id.inputStudentsPhone);
+        email = (EditText) findViewById(R.id.inputStudentsEmail);
+        String nameInput=nameStudent.getText().toString();
+        //Validate that inputs are empty
+        if((nameStudent.getText().toString().equals(""))&&(nameInput.length()>60)&&(cc.getText().toString().equals(""))&&(cc.length()>10)&&(phoneNumber.getText().toString().equals(""))&&(phoneNumber.length()>10)&&(email.getText().toString().equals("")&&(email.length()>30))){
+            return false;
+        }else{
+            return true;
+        }
     }
+
+}

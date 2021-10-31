@@ -6,9 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.misbrincosapp.BD.BdLessons;
+import com.example.misbrincosapp.BD.BdStudent;
+import com.example.misbrincosapp.model.Lesson;
 import com.example.misbrincosapp.model.Student;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +28,7 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
     private FirebaseAuth mAuth;
     private RecyclerView recyclerView;
     ArrayList<Student> students;
+    BdStudent bdStudent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +77,30 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
     private void getStudentsToActivity() {
         students = new ArrayList<Student>();
         //Loop that brings the lessons from db
+        if(bdStudent.getConnection()!=null){
+            Toast.makeText(ShowStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            ArrayList<String> names= bdStudent.searchName();
+            ArrayList<String> cc = bdStudent.searchCc();
+            ArrayList<String> number = bdStudent.searchPhoneNumber();
+            ArrayList<String> emailS = bdStudent.searchEmail();
+
+            if((names.size()==cc.size())&&(names.size()==number.size())&&(names.size()==emailS.size())){
+                for (int i = 0; i <names.size() ; i++) {
+                    String name = names.get(i);
+                    String  cedula = cc.get(i);
+                    String  tel = number.get(i);
+                    String  email = emailS.get(i);
+                    com.example.misbrincosapp.model.Student Student = new Student( cedula,name, tel,email);
+                    students.add(Student);
+                }
+                bdStudent.dropConnection();
+                setStudentsAdpater(students);
+            }else{
+                Toast.makeText(ShowStudentsActivity.this, R.string.error_in_consult, Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(ShowStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
         //setStudentsAdpater();
     }
 
@@ -82,6 +112,16 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
     @Override
     public void onListItemClick(int clickedItem) {
         students = new ArrayList<Student>();
-
+        int size = students.size();
+        for (int i = 0; i < size; i++) {
+            if (i == clickedItem) {
+                Student StudentClicked = students.get(i);
+                String StudentClickedName =  StudentClicked.getName();
+                //Intent with the key of the table
+                Intent intent = new Intent(ShowStudentsActivity.this, ViewStudentActivity.class);
+                intent.putExtra("NAME", StudentClickedName);
+                startActivity(intent);
+            }
+        }
     }
 }
