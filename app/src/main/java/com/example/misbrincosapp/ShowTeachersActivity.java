@@ -127,10 +127,10 @@ public class ShowTeachersActivity extends AppCompatActivity implements TeachersA
         for (int i = 0; i < size; i++) {
             if (i == clickedItem) {
                 Teacher TeacherClicked = teachers.get(i);
-                String TeacherClickedName =  TeacherClicked.getName();
+                String TeacherClickedName =  TeacherClicked.getcC();
                 //Intent with the key of the table
                 Intent intent = new Intent(ShowTeachersActivity.this, ViewTeacherActivity.class);
-                intent.putExtra("NAME", TeacherClickedName);
+                intent.putExtra("CC", TeacherClickedName);
                 startActivity(intent);
             }
         }
