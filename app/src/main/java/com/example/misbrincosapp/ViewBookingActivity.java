@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.format.DateFormat;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,8 +75,17 @@ public class ViewBookingActivity extends AppCompatActivity {
         }
     }
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_user_favorite:
+                onClickAssist();
+                return true;
             case android.R.id.home:
                 onBackClick();
                 return true;
@@ -82,6 +93,29 @@ public class ViewBookingActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private void onClickAssist() {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        try {
+            Intent key= getIntent();
+            int keyBooking = Integer.parseInt(key.getExtras().getString("ID"));
+            BdBookings bdBookings = new BdBookings();
+            if(bdBookings.getConnection()!=null){
+                Toast.makeText(ViewBookingActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+                bdBookings.updateBooking(keyBooking, "true" );
+                bdBookings.dropConnection();
+                finish();
+
+            }else{
+                Toast.makeText(ViewBookingActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void onBackClick() {
         finish();
     }

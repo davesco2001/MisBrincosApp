@@ -1,7 +1,5 @@
 package com.example.misbrincosapp.BD;
 
-import android.os.AsyncTask;
-import android.os.StrictMode;
 import android.widget.Toast;
 
 import java.sql.Connection;

@@ -83,7 +83,6 @@ public class EditSessionsActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
             try {
                 setIdSessionsOptions();
-                setCcTeacheroptions();
                 setIdClassRoomNumberptions();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -168,17 +167,25 @@ public class EditSessionsActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                AutoCompleteTextView idSession = (AutoCompleteTextView)
-                        findViewById(R.id.inputEditSessionId);
-                //Search IN bd
-                int keySession = Integer.parseInt(String.valueOf(idSession.getText()));
-                dayOfWeek = findViewById(R.id.textEditSessionDay);
-                hour = findViewById(R.id.textEditSessionHour);
-                String day = searchSessionDay(keySession);
-                dayOfWeek.setText(day);
-                String hourString=(String) DateFormat.format("hh:mm:ss", searchSessionHour(keySession));
-                hour.setText(hourString);
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                try {
+                    AutoCompleteTextView idSession = (AutoCompleteTextView)
+                            findViewById(R.id.inputEditSessionId);
+                    //Search IN bd
+                    int keySession = Integer.parseInt(String.valueOf(idSession.getText()));
+                    dayOfWeek = findViewById(R.id.textEditSessionDay);
+                    hour = findViewById(R.id.textEditSessionHour);
+                    String day = searchSessionDay(keySession);
+                    dayOfWeek.setText(day);
+                    String hourString=(String) DateFormat.format("hh:mm:ss", searchSessionHour(keySession));
+                    hour.setText(hourString);
+                    String lessonName = searchSessionLessonName(keySession);
+                    setCcTeacheroptions(lessonName);
 
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -299,6 +306,25 @@ public class EditSessionsActivity extends AppCompatActivity {
         idSession.setAdapter(adapter);
         //Change options
     }
+    private String searchSessionLessonName(int id) {
+        BdSessions bdSessions= new BdSessions();
+        String lesson = null;
+        if(bdSessions.getConnection()!=null){
+            Toast.makeText(EditSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            ArrayList<String> lessons = bdSessions.searchSessionLessonName(id);
+            if(1==lessons.size()){
+                for (int i = 0; i <lessons.size() ; i++) {
+                    lesson= lessons.get(i);
+                }
+                bdSessions.dropConnection();
+            }else{
+                Toast.makeText(EditSessionsActivity.this, R.string.error_in_consult, Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(EditSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
+        return lesson;
+    }
     private void setIdClassRoomNumberptions() {
         //Change options
         int size=0;
@@ -323,14 +349,14 @@ public class EditSessionsActivity extends AppCompatActivity {
                 findViewById(R.id.inputEditSessionsClassRoomNumber);
         idSession.setAdapter(adapter);
     }
-    private void setCcTeacheroptions() {
+    private void setCcTeacheroptions(String lessonName) {
         //Change options
         int size=0;
         ArrayList<String> ccsTeachers = new ArrayList<String>();
         BdSessions bdSessions = new BdSessions();
         if(bdSessions.getConnection()!=null){
             Toast.makeText(EditSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
-            ccsTeachers= bdSessions.searchCcTeacher();
+            ccsTeachers= bdSessions.searchCcTeachers(lessonName);
             size=ccsTeachers.size();
         }else{
             Toast.makeText(EditSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();

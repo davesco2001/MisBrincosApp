@@ -22,6 +22,7 @@ public class PackagesActivity extends AppCompatActivity implements FunctionAdapt
     private static final int showValue = 7;
     private static final int editValue = 8;
     private static final int deleteValue = 9;
+    private static final int shoppingsValue = 12;
     FirebaseUser currentUser;
     private Toolbar toolbar;
     private FirebaseAuth mAuth;
@@ -78,6 +79,7 @@ public class PackagesActivity extends AppCompatActivity implements FunctionAdapt
         functionsAdmin.add(new Function(getString(R.string.show_packages), showValue));
         functionsAdmin.add(new Function(getString(R.string.edit_package), editValue));
         functionsAdmin.add(new Function(getString(R.string.delete_package), deleteValue));
+        functionsAdmin.add(new Function(getString(R.string.shoppings), shoppingsValue));
         FunctionAdapter functionAdapter = new FunctionAdapter(functionsAdmin, this);
         recyclerView.setAdapter(functionAdapter);
     }
@@ -103,6 +105,10 @@ public class PackagesActivity extends AppCompatActivity implements FunctionAdapt
                 }
                 if (name.equals(getString(R.string.edit_package))) {
                     Intent intent = new Intent(PackagesActivity.this, EditPackagesActivity.class);
+                    startActivity(intent);
+                }
+                if (name.equals(getString(R.string.shoppings))) {
+                    Intent intent = new Intent(PackagesActivity.this, ShoppingsActivity.class);
                     startActivity(intent);
                 }
             }

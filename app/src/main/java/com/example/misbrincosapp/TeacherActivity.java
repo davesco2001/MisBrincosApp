@@ -41,7 +41,7 @@ public class TeacherActivity extends AppCompatActivity implements FunctionAdapte
     }
     @SuppressLint("ResourceType")
     private void setUpToolBar() {
-        toolbar = findViewById(R.id.toolbar_students);
+        toolbar = findViewById(R.id.toolbar_teachers);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextAppearance(this, R.style.Toolbar_TitleText);
         if (getSupportActionBar() != null) {

@@ -148,13 +148,19 @@ public class EditPackagesActivity extends AppCompatActivity {
                 AutoCompleteTextView idPackage = (AutoCompleteTextView)
                         findViewById(R.id.inputPackageId);
                 //Search IN bd
-                int keySession = Integer.parseInt(String.valueOf(idPackage.getText()));
-                packageName = findViewById(R.id.textEditPackageName);
-                price = findViewById(R.id.textEditPackagePrice);
-                String name = searchPackageName(keySession);
-                packageName.setText(name);
-                String pPrice = searchPackagePrice(keySession);
-                price.setText(pPrice);
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                try {
+                    int keySession = Integer.parseInt(String.valueOf(idPackage.getText()));
+                    packageName = findViewById(R.id.textEditPackageName);
+                    price = findViewById(R.id.textEditPackagePrice);
+                    String name = searchPackageName(keySession);
+                    packageName.setText(name);
+                    String pPrice = searchPackagePrice(keySession);
+                    price.setText(pPrice);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

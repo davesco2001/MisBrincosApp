@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".ShowSessionsActivity">
+    tools:context=".ShoppingsActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_show_sessions"
+        android:id="@+id/toolbar_view_shoppings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
@@ -20,12 +20,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:logo="@drawable/ic_search_black_24dp"
+        app:logo="@drawable/ic_local_mall_black_24dp"
         app:navigationIcon="@drawable/icon_vector_2"
-        app:title="@string/show_sessions"
+        app:title="@string/shoppings"
         app:titleTextColor="@color/colorRebeccaPurple" />
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewSessionsLessonName"
+        android:id="@+id/cardViewShoppingsIdPackage"
         style="@style/CardViewStyleMisBrincos"
         android:layout_width="338dp"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_show_sessions"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_view_shoppings"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,11 +48,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/SessionsLessonName"
+                android:id="@+id/ShoppingsIdPackage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_bold"
-                android:text="@string/lesson_name"
+                android:text="@string/pakcage_title_id"
                 android:textColor="@color/colorRebeccaPurple"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -64,7 +64,7 @@
                 app:layout_constraintVertical_bias="0.068" />
 
             <ImageButton
-                android:id="@+id/iconCardSessionsLessonName"
+                android:id="@+id/iconCardShoppingsPakcageId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -82,7 +82,7 @@
                 tools:src="@drawable/ic_search_black_24dp" />
 
             <AutoCompleteTextView
-                android:id="@+id/inputSessionsLessonName"
+                android:id="@+id/inputShoppingsPackageId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="29dp"
@@ -98,15 +98,15 @@
                 android:textColorHint="@color/colorDeminBlue"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/iconCardSessionsLessonName"
+                app:layout_constraintEnd_toStartOf="@+id/iconCardShoppingsPakcageId"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/SessionsLessonName"
+                app:layout_constraintTop_toBottomOf="@+id/ShoppingsIdPackage"
                 app:layout_constraintVertical_bias="0.058" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewSessionsSearchDate"
+        android:id="@+id/cardViewShoppingDate"
         style="@style/CardViewStyleMisBrincos"
         android:layout_width="338dp"
         android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewSessionsLessonName"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewShoppingsIdPackage"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -129,11 +129,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/SessionsSearchDate"
+                android:id="@+id/SessionEditDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_bold"
-                android:text="@string/date"
+                android:text="@string/final_date"
                 android:textColor="@color/colorRebeccaPurple"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -145,7 +145,7 @@
                 app:layout_constraintVertical_bias="0.068" />
 
             <ImageButton
-                android:id="@+id/dateButtonSessionsSearchDate"
+                android:id="@+id/dateShoppingsButtonEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -164,7 +164,7 @@
                 tools:ignore="RedundantDescriptionCheck" />
 
             <ImageButton
-                android:id="@+id/iconCardSessionsSearchDate"
+                android:id="@+id/iconCardShoppingsDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -182,7 +182,7 @@
                 tools:src="@drawable/ic_search_black_24dp" />
 
             <TextView
-                android:id="@+id/SessionsSearchDateText"
+                android:id="@+id/dateShoopingsEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -190,15 +190,16 @@
                 android:textColor="@color/colorRebeccaPurple"
                 android:textSize="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/dateButtonSessionsSearchDate"
-                app:layout_constraintHorizontal_bias="0.112"
+                app:layout_constraintEnd_toStartOf="@+id/dateShoppingsButtonEdit"
+                app:layout_constraintHorizontal_bias="0.136"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/SessionsSearchDate" />
+                app:layout_constraintTop_toBottomOf="@+id/SessionEditDate"
+                app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_show_sessions"
+        android:id="@+id/recycle_show_shoppings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
@@ -211,7 +212,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_show_sessions"
-        app:layout_constraintVertical_bias="0.474" />
-
+        app:layout_constraintTop_toBottomOf="@+id/cardViewShoppingDate"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

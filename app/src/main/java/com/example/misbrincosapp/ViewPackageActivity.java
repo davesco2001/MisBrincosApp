@@ -26,6 +26,8 @@ public class ViewPackageActivity extends AppCompatActivity {
     TextView daysTextView;
     TextView lessonsTextView;
     TextView priceTextView;
+    TextView idTextView;
+    TextView totalSold;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +83,8 @@ public class ViewPackageActivity extends AppCompatActivity {
         daysTextView = findViewById(R.id.viewTextPackageDays);
         lessonsTextView = findViewById(R.id.viewTextPackageLessons);
         priceTextView = findViewById(R.id.viewTextPackagePrice);
+        idTextView = findViewById(R.id.viewTextPackageId);
+        totalSold = findViewById(R.id.viewTextPackageTotalSold);
         //Get the key from ShowPackagesActivity
         Intent key= getIntent();
         int keyPackage = key.getIntExtra("ID",0);
@@ -93,6 +97,9 @@ public class ViewPackageActivity extends AppCompatActivity {
         daysTextView.setText(""+totalDays);
         lessonsTextView.setText(""+totalLessons);
         priceTextView.setText(price);
+        idTextView.setText(""+searchPackageId(keyPackage));
+        totalSold.setText(""+searchPackageTotalSold(plan));
+
     }
 
     private String searchPackagePlan(int keyLesson) {
@@ -134,6 +141,25 @@ public class ViewPackageActivity extends AppCompatActivity {
         }
         return totalOfDays;
     }
+    private int searchPackageTotalSold(String plan) {
+        BdPackages bdPackages= new BdPackages();
+        int totalSold = 0;
+        if(bdPackages.getConnection()!=null){
+            Toast.makeText(ViewPackageActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            ArrayList<Integer> tDays = bdPackages.searchTotalSold(plan);
+            if(1==tDays.size()){
+                for (int i = 0; i <tDays.size() ; i++) {
+                    totalSold= tDays.get(i);
+                }
+                bdPackages.dropConnection();
+            }else{
+                Toast.makeText(ViewPackageActivity.this, R.string.error_in_consult, Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(ViewPackageActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
+        return totalSold;
+    }
 
     private int searchPackageTotalLessons(int keyLesson) {
         BdPackages bdPackages= new BdPackages();
@@ -153,6 +179,25 @@ public class ViewPackageActivity extends AppCompatActivity {
             Toast.makeText(ViewPackageActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
         return totalOfLessons;
+    }
+    private int searchPackageId(int keyLesson) {
+        BdPackages bdPackages= new BdPackages();
+        int id = 0;
+        if(bdPackages.getConnection()!=null){
+            Toast.makeText(ViewPackageActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            ArrayList<Integer> ids = bdPackages.searchPackageId(keyLesson);
+            if(1==ids.size()){
+                for (int i = 0; i <ids.size() ; i++) {
+                    id= ids.get(i);
+                }
+                bdPackages.dropConnection();
+            }else{
+                Toast.makeText(ViewPackageActivity.this, R.string.error_in_consult, Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(ViewPackageActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
+        return id;
     }
 
     private String searchPackagePrice(int keyLesson) {

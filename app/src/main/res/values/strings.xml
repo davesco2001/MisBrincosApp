@@ -120,4 +120,9 @@
     <string name="edit_teacher">Edit Teacher</string>
     <string name="delete_teacher">Delete Teacher</string>
     <string name="creating_student">Creating Student</string>
+    <string name="total_sold">Total Sold</string>
+    <string name="shoppings">Shoppings</string>
+    <string name="final_date">Final Date</string>
+    <string name="dayOf_week_and_hour">Day Of Week And Hour</string>
+    <string name="assistance">Assistance</string>
 </resources>

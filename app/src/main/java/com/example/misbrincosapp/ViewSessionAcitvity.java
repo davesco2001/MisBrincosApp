@@ -31,6 +31,7 @@ public class ViewSessionAcitvity extends AppCompatActivity {
     TextView dayOfWeekTextView;
     TextView hourTextView;
     TextView classroomNumberTextView;
+    TextView assistanceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class ViewSessionAcitvity extends AppCompatActivity {
         dayOfWeekTextView = findViewById(R.id.viewTextSessionDay);
         hourTextView = findViewById(R.id.viewTextSessionHour);
         classroomNumberTextView = findViewById(R.id.viewTextSessionClassroom);
+        assistanceTextView = findViewById(R.id.viewTextSessionAssistance);
         //Get the key from ShowLessonsActivity
         Intent key= getIntent();
         int keySession = Integer.parseInt(key.getExtras().getString("ID"));
@@ -100,13 +102,34 @@ public class ViewSessionAcitvity extends AppCompatActivity {
         String day = searchSessionDay(keySession);
         String hour=(String) DateFormat.format("hh:mm:ss", searchSessionHour(keySession));
         int classRoomNumber= searchSessionClassRoom(keySession);
+        int assit = searchAssist(keySession);
         lessonNameTextView.setText(nameLesson);
         idTextView.setText(""+id);
         dateTextView.setText(date);
         dayOfWeekTextView.setText(day);
         hourTextView.setText(hour);
         classroomNumberTextView.setText(""+classRoomNumber);
+        assistanceTextView.setText(""+assit);
+    }
 
+    private int searchAssist(int keySession) {
+        BdSessions bdSessions= new BdSessions();
+        int total = 0;
+        if(bdSessions.getConnection()!=null){
+            Toast.makeText(ViewSessionAcitvity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+            ArrayList<Integer> totals = bdSessions.searchAssistance(keySession);
+            if(1==totals.size()){
+                for (int i = 0; i <totals.size() ; i++) {
+                    total= totals.get(i);
+                }
+                bdSessions.dropConnection();
+            }else{
+                Toast.makeText(ViewSessionAcitvity.this, R.string.error_in_consult, Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(ViewSessionAcitvity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        }
+        return total;
     }
 
     private int searchSessionClassRoom(int id) {

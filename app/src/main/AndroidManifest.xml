@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MisBrincosApp">
         <activity
+            android:name=".ShoppingsActivity"
+            android:exported="true" />
+        <activity
             android:name=".TeacherActivity"
             android:exported="true" />
         <activity
