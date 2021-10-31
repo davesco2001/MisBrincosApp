@@ -75,6 +75,7 @@ public class ViewStudentActivity extends AppCompatActivity {
     private void onBackClick() {
         finish();
     }
+
     private void getStudentToActivity() {
         //The empty text textview to fill with the information get by db
         nameTextView= findViewById(R.id.viewTextStudentName);
