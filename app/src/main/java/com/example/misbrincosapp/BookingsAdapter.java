@@ -55,7 +55,7 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.ViewHo
 
         public ViewHolderBookings(@NonNull View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.session_card_id);
+            cardView = itemView.findViewById(R.id.booking_card_id);
             bookingsName = itemView.findViewById(R.id.bookingTextLessonName);
             date = itemView.findViewById(R.id.bookingTextDate);
             icon = itemView.findViewById(R.id.iconBookingCard);

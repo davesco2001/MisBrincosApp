@@ -10,6 +10,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MisBrincosApp">
         <activity
+            android:name=".ShoppingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TeacherActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowTeachersActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewStudentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewTeacherActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewPackageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewLessonActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewSessionAcitvity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewBookingActivity"
+            android:exported="true" />
+        <activity
             android:name=".ShowTeacherSessionsActivity"
             android:exported="true" />
         <activity
@@ -114,6 +141,15 @@
         <activity
             android:name=".LogInActivity"
             android:exported="true" />
+        <activity
+            android:name=".CreateTeachersActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".EditTeachersActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".DeleteTeachersActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
