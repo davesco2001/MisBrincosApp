@@ -177,7 +177,7 @@ public class ShowTeacherSessionsActivity extends AppCompatActivity implements Se
                 AutoCompleteTextView ccTeacher = (AutoCompleteTextView)
                         findViewById(R.id.inputTeachersSessionsSearchCc);
                 //Search IN bd
-                int cc = Integer.parseInt(String.valueOf(ccTeacher.getText()));
+                String cc = ccTeacher.getText().toString();
                 //Search IN bd
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
@@ -189,7 +189,7 @@ public class ShowTeacherSessionsActivity extends AppCompatActivity implements Se
                         ArrayList<Integer> ids = bdSessions.searchSessionTeacherDatesId(finalDateInit, finalDateFinal, cc);
                         ArrayList<String> namesLessons = bdSessions.searchSessionLessonsNameTeacherDate(finalDateInit, finalDateFinal, cc);
                         ArrayList<java.sql.Date> dates = bdSessions.searchSessionTeacherDate(finalDateInit, finalDateFinal, cc);
-                        if ((ids.size() != 0) && (ids.size() == namesLessons.size())) {
+                        if ((ids.size() != 0)) {
                             for (int i = 0; i < ids.size(); i++) {
                                 int id = ids.get(i);
                                 String nameLesson = namesLessons.get(i);
@@ -201,6 +201,7 @@ public class ShowTeacherSessionsActivity extends AppCompatActivity implements Se
                             setSessionsAdapter(sessions);
                         } else {
                             Toast.makeText(ShowTeacherSessionsActivity.this, R.string.error_in_consult, Toast.LENGTH_SHORT).show();
+                            bdSessions.dropConnection();
                         }
                     } else {
                         Toast.makeText(ShowTeacherSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
@@ -213,8 +214,8 @@ public class ShowTeacherSessionsActivity extends AppCompatActivity implements Se
     }
 
     private void setCalendarButton() {
-        calendarButton = findViewById(R.id.dateButtonSessionsSearchDate);
-        calendarText = findViewById(R.id.SessionsSearchDateText);
+        calendarButton = findViewById(R.id.dateButtonTeachersSessionsSearchDate);
+        calendarText = findViewById(R.id.TeachersSessionsSearchDateText);
         //Trae el día actual
         //String dateOfToday = getDateOfToday();
         //calendarText.setText(dateOfToday);

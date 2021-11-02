@@ -65,7 +65,7 @@ public class ViewBookingActivity extends AppCompatActivity {
     }
     @SuppressLint("ResourceType")
     private void setUpToolBar() {
-        toolbar = findViewById(R.id.toolbar_view_lesson);
+        toolbar = findViewById(R.id.toolbar_view_booking);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextAppearance(this, R.style.Toolbar_TitleText);
         if (getSupportActionBar() != null) {
@@ -148,7 +148,7 @@ public class ViewBookingActivity extends AppCompatActivity {
         teacherName = findViewById(R.id.viewTextBookingTeacher);
 
         Intent key= getIntent();
-        int keyBooking = Integer.parseInt(key.getExtras().getString("ID"));
+        int keyBooking = key.getIntExtra("ID", 0);
 
         String lessonNameString = searchLessonName(keyBooking);
         //int duration= searchLessonDuration(keyBooking);
@@ -160,7 +160,7 @@ public class ViewBookingActivity extends AppCompatActivity {
         String teacherNames = searchTeacherName(keyBooking);
         
         lessonName.setText(lessonNameString);
-        bookingId.setText(keyBooking);
+        bookingId.setText(""+keyBooking);
         bookingDate.setText(date);
         bookingDay.setText(day);
         bookingHour.setText(hour);

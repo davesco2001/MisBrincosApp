@@ -477,9 +477,9 @@ public class BdSessions {
         }
     }
 
-    public ArrayList<Integer> searchSessionTeacherDatesId(String finalDateInit, String finalDateFinal, int cc) {
+    public ArrayList<Integer> searchSessionTeacherDatesId(String finalDateInit, String finalDateFinal, String cc) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Sesion.Id FROM Sesion JOIN Profesor Profesor.Cc=Sesion.Cc_profesor AND ON Fecha_sesion BETWEEN '"+finalDateInit+"' AND '"+finalDateFinal+"' AND Profesor.Cc ='"+cc+"' ORDER BY Sesion.Id";
+        String sql = "SELECT Sesion.Id FROM Sesion JOIN Profesor ON Profesor.Cc=Sesion.Cc_profesor AND Fecha_sesion BETWEEN '"+finalDateInit+"' AND '"+finalDateFinal+"' WHERE Profesor.Cc = '"+cc+"' ORDER BY Sesion.Id";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -496,9 +496,9 @@ public class BdSessions {
         return arrayList;
     }
 
-    public ArrayList<String> searchSessionLessonsNameTeacherDate(String finalDateInit, String finalDateFinal, int cc) {
+    public ArrayList<String> searchSessionLessonsNameTeacherDate(String finalDateInit, String finalDateFinal, String cc) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Realiza.Nombre_clase FROM (Sesion JOIN Profesor Profesor.Cc=Sesion.Cc_profesor AND ON Fecha_sesion BETWEEN '"+finalDateInit+"' AND '"+finalDateFinal+"') JOIN Realiza ON Realiza.Id_sesion = Sesion.Id)  WHERE Profesor.Cc ='"+cc+"' ORDER BY Sesion.Id";
+        String sql = "SELECT Realiza.Nombre_clase FROM ((Sesion JOIN Profesor ON Profesor.Cc=Sesion.Cc_profesor AND Sesion.Fecha_sesion BETWEEN '"+finalDateInit+"' AND '"+finalDateFinal+"') JOIN Realiza ON Realiza.Id_sesion = Sesion.Id)  WHERE Profesor.Cc = '"+cc+"' ORDER BY Sesion.Id";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -515,9 +515,9 @@ public class BdSessions {
         return arrayList;
     }
 
-    public ArrayList<Date> searchSessionTeacherDate(String finalDateInit, String finalDateFinal, int cc) {
+    public ArrayList<Date> searchSessionTeacherDate(String finalDateInit, String finalDateFinal, String cc) {
         ArrayList<Date> arrayList = new ArrayList<Date>();
-        String sql = "SELECT Sesion.Fecha_sesion FROM Sesion JOIN Profesor Profesor.Cc=Sesion.Cc_profesor AND Fecha_sesion BETWEEN '"+finalDateInit+"' AND '"+finalDateFinal+"' WHERE Profesor.Cc ='"+cc+"' ORDER BY Sesion.Id";
+        String sql = "SELECT Sesion.Fecha_sesion FROM (Sesion JOIN Profesor ON Profesor.Cc=Sesion.Cc_profesor AND Fecha_sesion BETWEEN '"+finalDateInit+"' AND '"+finalDateFinal+"') WHERE Profesor.Cc ='"+cc+"' ORDER BY Sesion.Id";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 

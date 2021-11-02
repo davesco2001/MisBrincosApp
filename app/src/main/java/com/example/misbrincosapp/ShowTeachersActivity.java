@@ -118,7 +118,6 @@ public class ShowTeachersActivity extends AppCompatActivity implements TeachersA
 
     @Override
     public void onListItemClick(int clickedItem) {
-        teachers = new ArrayList<com.example.misbrincosapp.model.Teacher>();
         int size = teachers.size();
         for (int i = 0; i < size; i++) {
             if (i == clickedItem) {

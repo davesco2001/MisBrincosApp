@@ -37,19 +37,7 @@
             android:name=".ViewBookingActivity"
             android:exported="true" />
         <activity
-            android:name=".ViewStudentActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewPackageActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewLessonActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewSessionAcitvity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewBookingActivity"
+            android:name=".ViewTeacherActivity"
             android:exported="true" />
         <activity
             android:name=".UserInfoActivity"

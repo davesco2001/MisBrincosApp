@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 
 import com.example.misbrincosapp.model.Function;
@@ -70,7 +71,13 @@ public class TeacherActivity extends AppCompatActivity implements FunctionAdapte
         super.onResume();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            getFunctionTeachers();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                getFunctionTeachers();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }

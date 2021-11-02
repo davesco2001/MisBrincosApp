@@ -39,6 +39,7 @@
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_create_packages.xml" value="0.30052083333333335" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_create_sessions.xml" value="0.22" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_create_students.xml" value="0.4466666666666667" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_create_teachers.xml" value="0.30052083333333335" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_delete_booking.xml" value="0.1" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_delete_lessons.xml" value="0.22" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_delete_packages.xml" value="0.13333333333333333" />
@@ -66,7 +67,7 @@
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_view_package.xml" value="0.5" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_view_session_acitvity.xml" value="0.2864583333333333" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_view_student.xml" value="0.30052083333333335" />
-        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_view_teacher.xml" value="0.22" />
+        <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/activity_view_teacher.xml" value="0.1" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/booking_card.xml" value="0.4466666666666667" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/booking_lessons_card.xml" value="0.1" />
         <entry key="..\:/Dev/MisBrincosApp/app/src/main/res/layout/booking_sessions_card.xml" value="0.4466666666666667" />

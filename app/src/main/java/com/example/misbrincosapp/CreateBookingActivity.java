@@ -104,7 +104,7 @@ public class CreateBookingActivity extends AppCompatActivity implements BookingS
                 }
                 bdStudent.dropConnection();
             }else{
-                Toast.makeText(CreateBookingActivity.this, R.string.error_in_consult, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateBookingActivity.this, R.string.error_in_consult+"email", Toast.LENGTH_SHORT).show();
             }
         }else{
             Toast.makeText(CreateBookingActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
