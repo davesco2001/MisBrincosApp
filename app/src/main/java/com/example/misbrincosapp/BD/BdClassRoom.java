@@ -155,7 +155,7 @@ public class BdClassRoom {
     }
     public ArrayList<Integer> searchCapacityBooking(int id) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Count()* AS Aforo FROM Reserva WHERE Id_sesion="+id ;
+        String sql = "SELECT Count(*) AS Aforo FROM Reserva WHERE Id_sesion="+id ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 

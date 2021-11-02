@@ -204,6 +204,7 @@ public class ShoppingsActivity extends AppCompatActivity implements ShoppingsAda
             Toast.makeText(ShoppingsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ids= bdPackages.searchId();
             size=ids.size();
+            bdPackages.dropConnection();
         }else{
             Toast.makeText(ShoppingsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

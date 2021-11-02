@@ -298,6 +298,7 @@ public class ShowTeacherSessionsActivity extends AppCompatActivity implements Se
             Toast.makeText(ShowTeacherSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ccS = bdTeacher.searchCc();
             size = ccS.size();
+            bdTeacher.dropConnection();
         } else {
             Toast.makeText(ShowTeacherSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

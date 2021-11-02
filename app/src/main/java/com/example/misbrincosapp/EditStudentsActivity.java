@@ -158,6 +158,7 @@ public class EditStudentsActivity extends AppCompatActivity {
             Toast.makeText(EditStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ccS = bdStudent.searchCc();
             size = ccS.size();
+            bdStudent.dropConnection();
         } else {
             Toast.makeText(EditStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -192,6 +193,7 @@ public class EditStudentsActivity extends AppCompatActivity {
             Toast.makeText(EditStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ccS= bdStudent.searchCc();
             size=ccS.size();
+            bdStudent.dropConnection();
         }else{
             Toast.makeText(EditStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

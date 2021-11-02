@@ -60,14 +60,14 @@ public class ViewHolderShoppings extends RecyclerView.ViewHolder implements View
         super(itemView);
         cardView = itemView.findViewById(R.id.shopping_card_id);
         idPackage = itemView.findViewById(R.id.packageTextShoppingId);
-        cCStudent = itemView.findViewById(R.id.teacherTextCc);
+        cCStudent = itemView.findViewById(R.id.studentTextCc);
         icon = itemView.findViewById(R.id.iconShoppingCard);
         itemView.setOnClickListener(this);
     }
 
     @SuppressLint("ResourceAsColor")
     public void bind(int position) {
-        idPackage.setText(shoopings.get(position).getIdPackage());
+        idPackage.setText(""+shoopings.get(position).getIdPackage());
         cCStudent.setText(shoopings.get(position).getCcStudent());
         //int color = Color.rgb(123, 52, 164);
         icon.setEnabled(false);

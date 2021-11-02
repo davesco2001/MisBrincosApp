@@ -213,6 +213,7 @@ public class EditPackagesActivity extends AppCompatActivity {
             Toast.makeText(EditPackagesActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ids= bdPackages.searchId();
             size=ids.size();
+            bdPackages.dropConnection();
         }else{
             Toast.makeText(EditPackagesActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

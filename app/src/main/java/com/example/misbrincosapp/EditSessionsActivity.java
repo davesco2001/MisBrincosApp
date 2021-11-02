@@ -308,6 +308,7 @@ public class EditSessionsActivity extends AppCompatActivity {
             Toast.makeText(EditSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ids= bdSessions.searchId();
             size=ids.size();
+            bdSessions.dropConnection();
         }else{
             Toast.makeText(EditSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -352,6 +353,7 @@ public class EditSessionsActivity extends AppCompatActivity {
             Toast.makeText(EditSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             classroomNumbers= bdSessions.searchClassroomNumber();
             size=classroomNumbers.size();
+            bdSessions.dropConnection();
         }else{
             Toast.makeText(EditSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -376,6 +378,7 @@ public class EditSessionsActivity extends AppCompatActivity {
             Toast.makeText(EditSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ccsTeachers= bdSessions.searchCcTeachers(lessonName);
             size=ccsTeachers.size();
+            bdSessions.dropConnection();
         }else{
             Toast.makeText(EditSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

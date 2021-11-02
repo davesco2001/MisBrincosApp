@@ -114,6 +114,7 @@ public class DeleteSessionsActivity extends AppCompatActivity {
             Toast.makeText(DeleteSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ids= bdSessions.searchId();
             size=ids.size();
+            bdSessions.dropConnection();
         }else{
             Toast.makeText(DeleteSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

@@ -119,15 +119,14 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
 
     @Override
     public void onListItemClick(int clickedItem) {
-        students = new ArrayList<Student>();
         int size = students.size();
         for (int i = 0; i < size; i++) {
             if (i == clickedItem) {
                 Student StudentClicked = students.get(i);
-                String StudentClickedName =  StudentClicked.getName();
+                String StudentClickedName = StudentClicked.getCc();
                 //Intent with the key of the table
                 Intent intent = new Intent(ShowStudentsActivity.this, ViewStudentActivity.class);
-                intent.putExtra("NAME", StudentClickedName);
+                intent.putExtra("CC", StudentClickedName);
                 startActivity(intent);
             }
         }

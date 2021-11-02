@@ -224,7 +224,7 @@ public class BdPackages {
     }
     public ArrayList<Integer> searchTotalSold(String plan) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT COUNT(*) AS Total_sold FROM Compra JOIN Paquete ON Compra.Id_paquete=Paquete.Id AND Paquete.plan = '"+plan+"'";
+        String sql = "SELECT COUNT(*) AS Total_sold FROM Compra JOIN Paquete ON Compra.Id_paquete = Paquete.Id AND Compra.Id_paquete=Paquete.Id AND Paquete.plan = '"+plan+"'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -242,7 +242,7 @@ public class BdPackages {
     }
     public ArrayList<String> searchShoppingCcStudent(int idPackage) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Compra.Cc_alumno FROM Compra JOIN Paquete ON Paquete.Id="+idPackage+"AND Compra.Id_paquete=Paquete.Id";
+        String sql = "SELECT Compra.Cc_alumno FROM Compra JOIN Paquete ON Compra.Id_paquete = Paquete.Id AND Paquete.Id="+idPackage+" AND Compra.Id_paquete=Paquete.Id";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -260,7 +260,7 @@ public class BdPackages {
     }
     public ArrayList<Integer> searchStudentPackages(String studentCc) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT COUNT(*) AS Total FROM Compra JOIN Alumno ON Alumno.Cc'="+studentCc+"' AND Compra.Cc_alumno=Alumno.Cc";
+        String sql = "SELECT COUNT(*) AS Total FROM Compra JOIN Alumno ON Alumno.Cc='"+studentCc+"' AND Compra.Cc_alumno=Alumno.Cc";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -296,7 +296,7 @@ public class BdPackages {
     }
     public ArrayList<Integer> searchShoppingIdPackagesDates(String dateInit, String dateFinal) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Compra.Id_paquete FROM Compra JOIN Paquete ON Compra.Fecha_inicio BETWEEN '"+dateInit+"' AND '"+dateFinal+"' ORDER BY Compra.Id_paquete";
+        String sql = "SELECT Compra.Id_paquete FROM Compra JOIN Paquete ON Compra.Id_paquete = Paquete.Id AND Compra.Fecha_inicio BETWEEN '"+dateInit+"' AND '"+dateFinal+"' ORDER BY Compra.Id_paquete";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -314,7 +314,7 @@ public class BdPackages {
     }
     public ArrayList<String> searchShoppingCcStudentDates(String dateInit, String dateFinal) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Compra.Cc_alumno FROM Compra JOIN Paquete ON Compra.Fecha_inicio BETWEEN '"+dateInit+"' AND '"+dateFinal+"' ORDER BY Compra.Id_paquete";
+        String sql = "SELECT Compra.Cc_alumno FROM Compra JOIN Paquete ON Compra.Id_paquete = Paquete.Id AND Compra.Fecha_inicio BETWEEN '"+dateInit+"' AND '"+dateFinal+"' ORDER BY Compra.Id_paquete";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 

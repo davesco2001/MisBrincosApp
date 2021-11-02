@@ -61,6 +61,7 @@ public class AddPackageToStudentsActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             try {
+
                 setCcStudentOptions();
                 setIdPackageOptions();
                 setNameLessonOptions();
@@ -209,6 +210,7 @@ public class AddPackageToStudentsActivity extends AppCompatActivity {
             Toast.makeText(AddPackageToStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ccs= bdStudent.searchCc();
             size=ccs.size();
+            bdStudent.dropConnection();
         }else{
             Toast.makeText(AddPackageToStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -232,6 +234,7 @@ public class AddPackageToStudentsActivity extends AppCompatActivity {
             Toast.makeText(AddPackageToStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ids= bdPackages.searchId();
             size=ids.size();
+            bdPackages.dropConnection();
         }else{
             Toast.makeText(AddPackageToStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -255,6 +258,7 @@ public class AddPackageToStudentsActivity extends AppCompatActivity {
             Toast.makeText(AddPackageToStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             names= bdLessons.searchName();
             size=names.size();
+            bdLessons.dropConnection();
         }else{
             Toast.makeText(AddPackageToStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

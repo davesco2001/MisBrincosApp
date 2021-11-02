@@ -111,6 +111,7 @@ public class DeletePackagesActivity extends AppCompatActivity {
             Toast.makeText(DeletePackagesActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ids= bdPackages.searchId();
             size=ids.size();
+            bdPackages.dropConnection();
         }else{
             Toast.makeText(DeletePackagesActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

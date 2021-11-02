@@ -217,4 +217,15 @@ public class BdTeacher {
         }
 
     }
+    public void addSpecialize(String cc,String name){
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Especializa VALUES ('"+cc+"' ,'"+name+"')")) {
+            preparedStatement.executeUpdate();
+        }catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            //        + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+
+    }
 }
