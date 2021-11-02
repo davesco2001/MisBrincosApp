@@ -40,33 +40,6 @@
             android:name=".ShowTeacherSessionsActivity"
             android:exported="true" />
         <activity
-            android:name=".ShoppingsActivity"
-            android:exported="true" />
-        <activity
-            android:name=".TeacherActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ShowTeachersActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewStudentActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewPackageActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewLessonActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewSessionAcitvity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewBookingActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewTeacherActivity"
-            android:exported="true" />
-        <activity
             android:name=".UserInfoActivity"
             android:exported="true" />
         <activity

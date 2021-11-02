@@ -176,11 +176,11 @@ public class CreateBookingActivity extends AppCompatActivity implements BookingS
                         ArrayList<Integer> room = bdBookings.searchNumberOfSession(sessionClickedId);
                         ArrayList<Integer> capacity = bdBookings.searchCapacityBooking(room.get(0));
                         ArrayList<Integer> aforo= bdBookings.searchCapacity(room.get(0));
-                        if(capacity.get(0)!=aforo.get(0)) {
+                        //if(capacity.get(0)!=aforo.get(0)) {
                             Toast.makeText(CreateBookingActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
                             bdBookings.addBooking(id, asistencia, now, sessionClickedId, studentId);
                             finish();
-                        }
+                        //}
                         bdBookings.dropConnection();
                     }else{
                         Toast.makeText(CreateBookingActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();

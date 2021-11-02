@@ -170,10 +170,11 @@ public class CreateSessionsActivity extends AppCompatActivity {
                     }else{Toast.makeText(CreateSessionsActivity.this, R.string.bad_inputs +"salon", Toast.LENGTH_SHORT).show();}
                 }
             }else{Toast.makeText(CreateSessionsActivity.this, R.string.bad_inputs, Toast.LENGTH_SHORT).show();}
-            if(!t){                bdSessions.addSession(id, fecha, ccProfesor, numeroSalon);
+            //if(!t){
+                bdSessions.addSession(id, fecha, ccProfesor, numeroSalon);
                 bdSessions.addRealiza(id, dia, hora, nombreClase);
                 finish();
-            }
+            //}
             bdSessions.dropConnection();
         }else{
             Toast.makeText(CreateSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
