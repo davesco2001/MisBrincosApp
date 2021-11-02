@@ -113,6 +113,7 @@ public class DeleteLessonsActivity extends AppCompatActivity {
             Toast.makeText(DeleteLessonsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             names= bdLessons.searchName();
             size=names.size();
+            bdLessons.dropConnection();
         }else{
             Toast.makeText(DeleteLessonsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

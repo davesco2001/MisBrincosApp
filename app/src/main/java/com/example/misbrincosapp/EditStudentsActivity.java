@@ -140,7 +140,7 @@ public class EditStudentsActivity extends AppCompatActivity {
     private boolean validationInputs() {
         ccStudent = findViewById(R.id.inputStudentsCc);
         telS = findViewById(R.id.inputEditStudentsPhone);
-        if ((ccStudent.getText().toString().equals("")) && (telS.getText().toString().equals(""))) {
+        if ((ccStudent.getText().toString().equals(""))&&(ccStudent.getText().toString().length()>10) && (telS.getText().toString().equals(""))&& (telS.getText().toString().length()>10)) {
             return false;
         } else {
             return true;
@@ -158,6 +158,7 @@ public class EditStudentsActivity extends AppCompatActivity {
             Toast.makeText(EditStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ccS = bdStudent.searchCc();
             size = ccS.size();
+            bdStudent.dropConnection();
         } else {
             Toast.makeText(EditStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -192,6 +193,7 @@ public class EditStudentsActivity extends AppCompatActivity {
             Toast.makeText(EditStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ccS= bdStudent.searchCc();
             size=ccS.size();
+            bdStudent.dropConnection();
         }else{
             Toast.makeText(EditStudentsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

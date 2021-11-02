@@ -207,7 +207,7 @@ public class BdStudent {
     }
     public ArrayList<String> searchStudentLesson(String cc) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Contiene.Nombre_clase FROM ((Alumno JOIN Compra ON Alumno.Cc='"+cc+"')JOIN Contiene ON Compra.Id_paquete = Contiene.Id_paquete)";
+        String sql = "SELECT Contiene.Nombre_clase FROM ((Alumno JOIN Compra ON Alumno.Cc= Compra.cc_Alumno)JOIN Contiene ON Compra.Id_paquete = Contiene.Id_paquete) WHERE Alumno.cc ='"+cc+ "'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -225,7 +225,7 @@ public class BdStudent {
     }
     public ArrayList<Integer> searchStudentTotalOfLesson(String cc) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Paquete.Cant_clases FROM ((Alumno JOIN Compra ON Alumno.Cc='"+cc+"')JOIN Paquete ON Compra.Id_paquete = Paquete.Id)";
+        String sql = "SELECT Paquete.Cant_clases FROM ((Alumno JOIN Compra ON Alumno.Cc=compra.cc_Alumno)JOIN Paquete ON Compra.Id_paquete = Paquete.Id) WHERE Alumno.cc ='"+cc+ "'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -243,7 +243,7 @@ public class BdStudent {
     }
     public ArrayList<Date> searchStudentDateExpiredPackage(String cc) {
         ArrayList<Date> arrayList = new ArrayList<Date>();
-        String sql = "SELECT Compra.Fecha_caducidad FROM Alumno JOIN Compra ON Alumno.Cc='"+cc+"'";
+        String sql = "SELECT Compra.Fecha_caducidad FROM compra JOIN alumno ON Alumno.Cc=compra.Cc_alumno WHERE alumno.cc ='"+cc+"'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -261,7 +261,7 @@ public class BdStudent {
     }
     public ArrayList<String> searchStudentPackagePlan(String cc) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Paquete.Plan FROM ((Alumno JOIN Compra ON Alumno.Cc='"+cc+"')JOIN Paquete ON Compra.Id_paquete = Paquete.Id)";
+        String sql = "SELECT Paquete.Plan FROM ((Alumno JOIN Compra ON Alumno.Cc=compra.Cc_alumno)JOIN Paquete ON Compra.Id_paquete = Paquete.Id ) WHERE Alumno.cc = '"+cc+"'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 

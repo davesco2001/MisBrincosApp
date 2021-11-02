@@ -81,14 +81,10 @@ public class ShowTeachersActivity extends AppCompatActivity implements TeachersA
     private void onBackClick() {
         finish();
     }
-
-
-
-
-
     private void getTeachersToActivity() {
         teachers = new ArrayList<Teacher>();
         //Loop that brings the lessons from db
+        bdteacher =  new BdTeacher();
         if(bdteacher.getConnection()!=null){
             Toast.makeText(ShowTeachersActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ArrayList<String> names= bdteacher.searchName();
@@ -122,7 +118,6 @@ public class ShowTeachersActivity extends AppCompatActivity implements TeachersA
 
     @Override
     public void onListItemClick(int clickedItem) {
-        teachers = new ArrayList<com.example.misbrincosapp.model.Teacher>();
         int size = teachers.size();
         for (int i = 0; i < size; i++) {
             if (i == clickedItem) {

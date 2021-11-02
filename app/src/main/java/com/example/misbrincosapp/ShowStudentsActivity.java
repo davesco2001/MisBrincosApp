@@ -84,6 +84,7 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
     private void getStudentsToActivity() {
         students = new ArrayList<Student>();
         //Loop that brings the lessons from db
+        bdStudent = new BdStudent();
         if(bdStudent.getConnection()!=null){
             Toast.makeText(ShowStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ArrayList<String> names= bdStudent.searchName();
@@ -97,7 +98,7 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
                     String  cedula = cc.get(i);
                     String  tel = number.get(i);
                     String  email = emailS.get(i);
-                    com.example.misbrincosapp.model.Student Student = new Student( cedula,name, tel,email);
+                    Student Student = new Student( cedula,name, tel,email);
                     students.add(Student);
                 }
                 bdStudent.dropConnection();
@@ -118,15 +119,14 @@ public class ShowStudentsActivity extends AppCompatActivity implements StudentsA
 
     @Override
     public void onListItemClick(int clickedItem) {
-        students = new ArrayList<Student>();
         int size = students.size();
         for (int i = 0; i < size; i++) {
             if (i == clickedItem) {
                 Student StudentClicked = students.get(i);
-                String StudentClickedName =  StudentClicked.getName();
+                String StudentClickedName = StudentClicked.getCc();
                 //Intent with the key of the table
                 Intent intent = new Intent(ShowStudentsActivity.this, ViewStudentActivity.class);
-                intent.putExtra("NAME", StudentClickedName);
+                intent.putExtra("CC", StudentClickedName);
                 startActivity(intent);
             }
         }

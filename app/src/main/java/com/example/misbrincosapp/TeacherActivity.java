@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 
 import com.example.misbrincosapp.model.Function;
@@ -22,6 +23,8 @@ public class TeacherActivity extends AppCompatActivity implements FunctionAdapte
     private static final int showValue = 7;
     private static final int editValue = 8;
     private static final int deleteValue = 9;
+
+    private static final int teacherSessionsValue = 13;
 
     FirebaseUser currentUser;
     private Toolbar toolbar;
@@ -68,7 +71,13 @@ public class TeacherActivity extends AppCompatActivity implements FunctionAdapte
         super.onResume();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            getFunctionTeachers();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                getFunctionTeachers();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             finish();
         }
@@ -79,6 +88,7 @@ public class TeacherActivity extends AppCompatActivity implements FunctionAdapte
         functionsAdmin.add(new Function(getString(R.string.show_teachers), showValue));
         functionsAdmin.add(new Function(getString(R.string.edit_teacher), editValue));
         functionsAdmin.add(new Function(getString(R.string.delete_teacher), deleteValue));
+        functionsAdmin.add(new Function(getString(R.string.show_sessions), teacherSessionsValue));
         FunctionAdapter functionAdapter = new FunctionAdapter(functionsAdmin, this);
         recyclerView.setAdapter(functionAdapter);
     }
@@ -104,6 +114,10 @@ public class TeacherActivity extends AppCompatActivity implements FunctionAdapte
                 }
                 if (name.equals(getString(R.string.delete_teacher))) {
                     Intent intent = new Intent(TeacherActivity.this, DeleteTeachersActivity.class);
+                    startActivity(intent);
+                }
+                if (name.equals(getString(R.string.show_sessions))) {
+                    Intent intent = new Intent(TeacherActivity.this, ShowTeacherSessionsActivity.class);
                     startActivity(intent);
                 }
             }

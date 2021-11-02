@@ -300,7 +300,7 @@ public class ShowSessionsActivity extends AppCompatActivity implements SessionsA
                 int sessionClickedId=sessionClicked.getId();
                 //Intent with the key of the table
                 Intent intent = new Intent(ShowSessionsActivity.this, ViewSessionAcitvity.class);
-                intent.putExtra("ID", sessionClickedId);
+                intent.putExtra("ID_S", sessionClickedId);
                 startActivity(intent);
             }
 

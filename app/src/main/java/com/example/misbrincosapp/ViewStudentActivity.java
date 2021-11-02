@@ -84,7 +84,7 @@ public class ViewStudentActivity extends AppCompatActivity {
         emailTextView = findViewById(R.id.viewTextStudentEmail);
         //In this method you take the key that was send by the Intent in the ShowStudentsActivity.java
         Intent key= getIntent();
-        String keyStudent = key.getExtras().getString("NAME");
+        String keyStudent = key.getExtras().getString("CC");
         //The key its the same as the key of the table
         String name = searchStudentName(keyStudent);
         String cc= searchStudentCc(keyStudent);

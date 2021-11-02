@@ -36,7 +36,7 @@ public class TeachersAdapter extends RecyclerView.Adapter<TeachersAdapter.ViewHo
     @Override
     public ViewHolderTeachers onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        int item = R.layout.student_card;
+        int item = R.layout.teacher_card;
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         boolean fast = false;
         View view = layoutInflater.inflate(item, parent, fast);

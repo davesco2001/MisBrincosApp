@@ -22,19 +22,7 @@
             android:name=".ViewStudentActivity"
             android:exported="true" />
         <activity
-            android:name=".ViewPackageActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewLessonActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewSessionAcitvity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewBookingActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ViewStudentActivity"
+            android:name=".ViewTeacherActivity"
             android:exported="true" />
         <activity
             android:name=".ViewPackageActivity"
@@ -47,6 +35,9 @@
             android:exported="true" />
         <activity
             android:name=".ViewBookingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShowTeacherSessionsActivity"
             android:exported="true" />
         <activity
             android:name=".UserInfoActivity"
@@ -123,6 +114,15 @@
         <activity
             android:name=".LogInActivity"
             android:exported="true" />
+        <activity
+            android:name=".CreateTeachersActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".EditTeachersActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".DeleteTeachersActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

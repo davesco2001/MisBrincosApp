@@ -122,6 +122,7 @@ public class DeleteTeachersActivity extends AppCompatActivity {
             Toast.makeText(DeleteTeachersActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             cc = bdTeacher.searchCc();
             size = cc.size();
+            bdTeacher.dropConnection();
         } else {
             Toast.makeText(DeleteTeachersActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

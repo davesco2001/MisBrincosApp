@@ -150,7 +150,7 @@ public class BdBookings {
     }
     public ArrayList<Integer> searchClassroomNumber(int idBooking) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Sesion.Numero_salon FROM Reserva JOIN Sesion ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Sesion.Id" ;
+        String sql = "Sesion.Numero_salon FROM Reserva JOIN Sesion ON  Reserva.Id_sesion = Sesion.Id WHERE Reserva.Id= "+idBooking+"";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -168,7 +168,7 @@ public class BdBookings {
     }
     public ArrayList<Time> searchHour(int idBooking) {
         ArrayList<Time> arrayList = new ArrayList<Time>();
-        String sql = "SELECT Realiza.Hora FROM Reserva JOIN Realiza ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Realiza.Id_sesion" ;
+        String sql = "SELECT Realiza.Hora FROM Reserva JOIN Realiza ON Reserva.Id_sesion = Realiza.Id_sesion  WHERE Reserva.Id= "+idBooking+"" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -186,7 +186,7 @@ public class BdBookings {
     }
     public ArrayList<String> searchDay(int idBooking) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Realiza.Dia FROM Reserva JOIN Realiza ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Realiza.Id_sesion" ;
+        String sql = "SELECT Realiza.Dia FROM Reserva JOIN Realiza ON Reserva.Id_sesion = Realiza.Id_sesion  WHERE Reserva.Id= "+idBooking+"";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -222,7 +222,7 @@ public class BdBookings {
     }
     public ArrayList<String> searchTeacherName(int idBooking) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Profesor.Nombre FROM (Reserva JOIN Sesion ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Sesion.Id) JOIN Profesor ON Sesion.Cc_profesor = Profesor.Cc" ;
+        String sql = "SELECT Profesor.Nombre FROM (Reserva JOIN Sesion ON Reserva.Id_sesion = Sesion.Id) JOIN Profesor ON Sesion.Cc_profesor = Profesor.Cc WHERE Reserva.Id="+idBooking+"";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -291,7 +291,7 @@ public class BdBookings {
 
     public ArrayList<String> searchBookingLessonName(int idBooking) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Realiza.Nombre_clase FROM Realiza JOIN Reserva ON Reserva.Id="+idBooking+" AND Reserva.Id_sesion = Realiza.Id_sesion" ;
+        String sql = "SELECT Realiza.Nombre_clase FROM Realiza JOIN Reserva ON  Reserva.Id_sesion = Realiza.Id_sesion WHERE Reserva.Id= "+idBooking+"" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -345,7 +345,7 @@ public class BdBookings {
     }
     public ArrayList<String> searchBookingLessonsName(String ccStudent) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Realiza.Nombre_clase FROM Realiza JOIN Reserva ON Reserva.Cc_alumno = '"+ccStudent+"' AND Reserva.Id_sesion = Realiza.Id_sesion ORDER BY Reserva.Id" ;
+        String sql = "SELECT Realiza.Nombre_clase FROM Realiza JOIN Reserva ON  Reserva.Id_sesion = Realiza.Id_sesion WHERE Cc_Alumno= '"+ccStudent+"' ORDER BY Reserva.Id" ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -388,5 +388,131 @@ public class BdBookings {
             System.out.println("Error en la ejecución:"
                     + sqlException.getErrorCode() + " " + sqlException.getMessage());
         }
+    }
+    public ArrayList<Integer> searchNumberOfSession(int sesionId) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Numero_salon FROM Sesion WHERE Id="+sesionId+"" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Numero_salon"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<Time> searchHour(String day, String hour) {
+        ArrayList<Time> arrayList = new ArrayList<Time>();
+        String sql = "SELECT Hora FROM Horario  WHERE Dia='"+day+"' AND Hora='"+hour+"'ORDER BY Hora" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getTime("Hora"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<String> searchDay(String hour, String day) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        String sql = "SELECT Dia FROM Horario WHERE Dia='"+day+"' AND Hora='"+hour+"' ORDER BY Hora" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getString("Dia"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<Integer> searchNumber(String lessonName) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Numero FROM Salon WHERE Tipo='"+lessonName+"'ORDER BY Numero" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Numero"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<Integer> searchNumberClassRoomOccupied(int room, String fecha, String hora) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Sesion.Numero_salon FROM Sesion JOIN Realiza ON Sesion.Id = Realiza.Id_sesion WHERE Sesion.Numero_salon="+room+" AND Sesion.Fecha_sesion='"+fecha+"' AND Realiza.Hora = '"+hora+"' ORDER BY Sesion.Numero_salon" ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Numero_salon"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<Integer> searchCapacity(int numero) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Aforo FROM Salon WHERE Numero="+numero ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Aforo"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
+    }
+    public ArrayList<Integer> searchCapacityBooking(int id) {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        String sql = "SELECT Count(*) AS Aforo FROM Reserva WHERE Id_sesion="+id ;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                arrayList.add(resultSet.getInt("Aforo"));
+            }
+
+        } catch (SQLException sqlException) {
+            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
+            // + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
+            System.out.println("Error en la ejecución:"
+                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
+        }
+        return arrayList;
     }
 }

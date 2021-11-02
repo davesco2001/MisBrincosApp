@@ -95,7 +95,7 @@ public class UserInfoActivity extends AppCompatActivity {
         String name = "";
         if(bdStudent.getConnection()!=null){
             Toast.makeText(UserInfoActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
-            ArrayList<String> names = bdStudent.searchStudentCc(studentId);
+            ArrayList<String> names = bdStudent.searchStudentName(studentId);
             if(1==names.size()){
                 for (int i = 0; i <names.size() ; i++) {
                     name= names.get(i);
