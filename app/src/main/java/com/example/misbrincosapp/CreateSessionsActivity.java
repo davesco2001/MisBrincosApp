@@ -149,24 +149,28 @@ public class CreateSessionsActivity extends AppCompatActivity {
             ArrayList<String> dayBd= bdSessions.searchDay(hora, dia);
             ArrayList<Time> hourBd = bdSessions.searchHour(dia, hora);
             ArrayList<Integer> classrooms= bdSessions.searchNumber(nombreClase);
-
+            Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             boolean t = false;
             if((dayBd.get(0).equals(dia))&&(hourBd.get(0).equals(hora))) {
+                Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
                 for (int i = 0; i < classrooms.size(); i++) {
                     if (classrooms.get(i) == numeroSalon) {
+                        Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
                         t = true;
                         ArrayList<Integer> fulls = bdSessions.searchNumberClassRoomOccupied(numeroSalon, fecha, hora);
                         for (int o = 0; o <fulls.size() ; o++) {
                             if(fulls.get(o)!=numeroSalon){
+                                Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
                                 t = true;
                             }else  {
                                 t = false;
+                                Toast.makeText(CreateSessionsActivity.this, R.string.bad_inputs +"lleno", Toast.LENGTH_SHORT).show();
                             }
                         }
-                    }
+                    }else{Toast.makeText(CreateSessionsActivity.this, R.string.bad_inputs +"salon", Toast.LENGTH_SHORT).show();}
                 }
-            }
-            if((dayBd.get(0).equals(dia))&&(hourBd.get(0).equals(hora))&&(t)){
+            }else{Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();}
+            if(t){
                 bdSessions.addSession(id, fecha, ccProfesor, numeroSalon);
                 bdSessions.addRealiza(id, dia, hora, nombreClase);
                 finish();
@@ -300,6 +304,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
             Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             names= bdLessons.searchName();
             size=names.size();
+            bdLessons.dropConnection();
         }else{
             Toast.makeText(CreateSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -324,6 +329,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
             Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ccsTeachers= bdSessions.searchCcTeacher();
             size=ccsTeachers.size();
+            bdSessions.dropConnection();
         }else{
             Toast.makeText(CreateSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -348,6 +354,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
             Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             classroomNumbers= bdSessions.searchClassroomNumber();
             size=classroomNumbers.size();
+            bdSessions.dropConnection();
         }else{
             Toast.makeText(CreateSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }

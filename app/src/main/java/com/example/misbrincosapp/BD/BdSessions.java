@@ -335,7 +335,7 @@ public class BdSessions {
     }
     public ArrayList<Integer> searchSessionDatesId(String date) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Id FROM Sesion WHERE Fecha_sesion= '"+date+"'ORDER BY Id";
+        String sql = "SELECT Id FROM Sesion WHERE Fecha_sesion='"+date+"' ORDER BY Id";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -367,7 +367,7 @@ public class BdSessions {
     }
     public ArrayList<String> searchSessionLessonsNameDate(String date) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Realiza.Nombre_clase FROM ((Sesion JOIN Realiza ON Realiza.Id_sesion = Sesion.Id) JOIN Contiene ON Realiza.Nombre_clase = Contiene.Nombre_clase AND Sesion.Fecha_sesion ='"+date+"' ORDER BY Sesion.Id";
+        String sql = "SELECT Realiza.Nombre_clase FROM ((Sesion JOIN Realiza ON Realiza.Id_sesion = Sesion.Id) JOIN Contiene ON Realiza.Nombre_clase = Contiene.Nombre_clase AND Sesion.Fecha_sesion ='"+date+"' ) ORDER BY Sesion.Id";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
