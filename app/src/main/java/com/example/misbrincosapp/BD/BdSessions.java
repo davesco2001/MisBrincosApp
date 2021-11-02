@@ -223,7 +223,7 @@ public class BdSessions {
     }
     public ArrayList<Date> searchSessionDate(int id) {
         ArrayList<Date> arrayList = new ArrayList<Date>();
-        String sql = "SELECT Fecha_sesion FROM Sesion WHERE Id_sesion="+id+"";
+        String sql = "SELECT Fecha_sesion FROM Sesion WHERE Id="+id+"";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -271,7 +271,7 @@ public class BdSessions {
     }
     public ArrayList<Integer> searchSessionId(int id) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Id FROM Sesion WHERE Id_sesion="+id+"";
+        String sql = "SELECT Id FROM Sesion WHERE Id="+id+"";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -287,7 +287,7 @@ public class BdSessions {
     }
     public ArrayList<Integer> searchSessionClassroom(int id) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        String sql = "SELECT Numero_salon FROM Sesion WHERE Id_sesion="+id+"";
+        String sql = "SELECT Numero_salon FROM Sesion WHERE Id="+id+"";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 

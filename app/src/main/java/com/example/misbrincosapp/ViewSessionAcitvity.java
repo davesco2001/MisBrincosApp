@@ -60,7 +60,7 @@ public class ViewSessionAcitvity extends AppCompatActivity {
     }
     @SuppressLint("ResourceType")
     private void setUpToolBar() {
-        toolbar = findViewById(R.id.toolbar_view_lesson);
+        toolbar = findViewById(R.id.toolbar_view_session);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextAppearance(this, R.style.Toolbar_TitleText);
         if (getSupportActionBar() != null) {
@@ -94,11 +94,11 @@ public class ViewSessionAcitvity extends AppCompatActivity {
         assistanceTextView = findViewById(R.id.viewTextSessionAssistance);
         //Get the key from ShowLessonsActivity
         Intent key= getIntent();
-        int keySession = Integer.parseInt(key.getExtras().getString("ID"));
+        int keySession = key.getIntExtra("ID_S", 0);
         //Create 1 method for each search
         String nameLesson = searchSessionLessonName(keySession);
         int id= searchSessionId(keySession);
-        String date = (String) DateFormat.format("YYYY-MM-DD", searchSessionDate(keySession));
+        String date = (String) DateFormat.format("yyyy-MM-dd", searchSessionDate(keySession));
         String day = searchSessionDay(keySession);
         String hour=(String) DateFormat.format("hh:mm:ss", searchSessionHour(keySession));
         int classRoomNumber= searchSessionClassRoom(keySession);
