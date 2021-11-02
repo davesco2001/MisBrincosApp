@@ -128,4 +128,5 @@
     <string name="teacher">Teacher</string>
     <string name="sign_up_failed">Create Students Credential Failed</string>
     <string name="sign_up_succes">Create Students Credentias Succesful</string>
+    <string name="especial">Specializes</string>
 </resources>

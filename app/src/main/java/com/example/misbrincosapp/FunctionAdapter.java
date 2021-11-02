@@ -69,6 +69,7 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
         //EXTERNAL FUNCTIONS
         private static final int addPackageToStudent = 10;
         private static final int shoppingsValue = 12;
+        private static final int teacherSessionsValue = 13;
 
         public ViewHolderFunctions( @NonNull View itemView){
             super(itemView);
@@ -129,6 +130,10 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.ViewHo
                 case shoppingsValue:
                     icon.setEnabled(true);
                     icon.setImageResource(R.drawable.ic_local_mall_black_24dp);
+                    break;
+                case teacherSessionsValue:
+                    icon.setEnabled(true);
+                    icon.setImageResource(R.drawable.ic_today_black_24dp);
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + functions.get(position).getType());

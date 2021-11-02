@@ -81,14 +81,10 @@ public class ShowTeachersActivity extends AppCompatActivity implements TeachersA
     private void onBackClick() {
         finish();
     }
-
-
-
-
-
     private void getTeachersToActivity() {
         teachers = new ArrayList<Teacher>();
         //Loop that brings the lessons from db
+        bdteacher =  new BdTeacher();
         if(bdteacher.getConnection()!=null){
             Toast.makeText(ShowTeachersActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
             ArrayList<String> names= bdteacher.searchName();

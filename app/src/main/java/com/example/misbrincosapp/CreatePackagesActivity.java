@@ -121,7 +121,7 @@ public class CreatePackagesActivity extends AppCompatActivity {
         totalDays = (EditText) findViewById(R.id.inputPackageTotalOfDays);
         String nameInput=namePackage.getText().toString();
         //Validate that inputs are empty
-        if((namePackage.getText().toString().equals(""))&&(nameInput.length()>10)&&(totalLessons.getText().toString().equals(""))&&(price.getText().toString().equals(""))&&(totalDays.getText().toString().equals(""))){
+        if((namePackage.getText().toString().equals(""))&&(nameInput.length()>60)&&(totalLessons.getText().toString().equals(""))&&(price.getText().toString().equals(""))&&(price.getText().toString().length()>20)&&(totalDays.getText().toString().equals(""))){
             return false;
         }else{
             return true;

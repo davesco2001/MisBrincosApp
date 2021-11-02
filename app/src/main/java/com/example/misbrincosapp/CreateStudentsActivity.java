@@ -112,7 +112,7 @@ public class CreateStudentsActivity extends AppCompatActivity {
         bdStudent = new BdStudent();
         if(bdStudent.getConnection()!=null){
             Toast.makeText(CreateStudentsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
-            bdStudent.addStudent(name ,cedula ,tel, emailS);
+            bdStudent.addStudent(cedula, name ,tel, emailS);
             singUp(emailS, cedula);
             bdStudent.dropConnection();
             finish();
@@ -129,7 +129,7 @@ public class CreateStudentsActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.inputStudentsEmail);
         String nameInput=nameStudent.getText().toString();
         //Validate that inputs are empty
-        if((nameStudent.getText().toString().equals(""))&&(nameInput.length()>60)&&(cc.getText().toString().equals(""))&&(cc.length()>10)&&(phoneNumber.getText().toString().equals(""))&&(phoneNumber.length()>10)&&(email.getText().toString().equals("")&&(email.length()>30))){
+        if((nameStudent.getText().toString().equals(""))&&(nameInput.length()>60)&&(cc.getText().toString().equals(""))&&(cc.getText().toString().length()>10)&&(phoneNumber.getText().toString().equals(""))&&(phoneNumber.getText().toString().length()>10)&&(email.getText().toString().equals("")&&(email.getText().toString().length()>30))){
             return false;
         }else{
             return true;

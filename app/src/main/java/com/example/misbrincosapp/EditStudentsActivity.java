@@ -140,7 +140,7 @@ public class EditStudentsActivity extends AppCompatActivity {
     private boolean validationInputs() {
         ccStudent = findViewById(R.id.inputStudentsCc);
         telS = findViewById(R.id.inputEditStudentsPhone);
-        if ((ccStudent.getText().toString().equals("")) && (telS.getText().toString().equals(""))) {
+        if ((ccStudent.getText().toString().equals(""))&&(ccStudent.getText().toString().length()>10) && (telS.getText().toString().equals(""))&& (telS.getText().toString().length()>10)) {
             return false;
         } else {
             return true;

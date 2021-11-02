@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
@@ -142,15 +143,35 @@ public class CreateSessionsActivity extends AppCompatActivity {
         String hora = timeText.getText().toString();
         String dia= dayOfWeek.getText().toString();
         String nombreClase = lessonName.getText().toString();
-
         bdSessions = new BdSessions();
         if(bdSessions.getConnection()!=null){
             Toast.makeText(CreateSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
-            bdSessions.addSession(id, fecha, ccProfesor, numeroSalon);
-            bdSessions.addRealiza(id,dia,hora,nombreClase);
-            bdSessions.dropConnection();
-            finish();
+            ArrayList<String> dayBd= bdSessions.searchDay(hora, dia);
+            ArrayList<Time> hourBd = bdSessions.searchHour(dia, hora);
+            ArrayList<Integer> classrooms= bdSessions.searchNumber(nombreClase);
 
+            boolean t = false;
+            if((dayBd.get(0).equals(dia))&&(hourBd.get(0).equals(hora))) {
+                for (int i = 0; i < classrooms.size(); i++) {
+                    if (classrooms.get(i) == numeroSalon) {
+                        t = true;
+                        ArrayList<Integer> fulls = bdSessions.searchNumberClassRoomOccupied(numeroSalon, fecha, hora);
+                        for (int o = 0; o <fulls.size() ; o++) {
+                            if(fulls.get(o)!=numeroSalon){
+                                t = true;
+                            }else  {
+                                t = false;
+                            }
+                        }
+                    }
+                }
+            }
+            if((dayBd.get(0).equals(dia))&&(hourBd.get(0).equals(hora))&&(t)){
+                bdSessions.addSession(id, fecha, ccProfesor, numeroSalon);
+                bdSessions.addRealiza(id, dia, hora, nombreClase);
+                finish();
+            }
+            bdSessions.dropConnection();
         }else{
             Toast.makeText(CreateSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
         }
@@ -164,7 +185,7 @@ public class CreateSessionsActivity extends AppCompatActivity {
         dayOfWeek = findViewById(R.id.inputSessionsDayOfWeek);
         classRoomNumber = findViewById(R.id.inputSessionsClassRoomNumber);
         ccTeacher = findViewById(R.id.inputSessionsCcTeacher);
-        if((lessonName.getText().toString().equals(""))&&(lessonName.length()>10)&&(dayOfWeek.getText().toString().equals(""))&&(dayOfWeek.length()>10)&&(calendarText.getText().toString().equals(""))&&(timeText.getText().toString().equals(""))&&(classRoomNumber.getText().toString().equals(""))&&(ccTeacher.getText().toString().equals(""))){
+        if((lessonName.getText().toString().equals(""))&&(lessonName.length()>10)&&(dayOfWeek.getText().toString().equals(""))&&(dayOfWeek.length()>10)&&(calendarText.getText().toString().equals(""))&&(timeText.getText().toString().equals(""))&&(classRoomNumber.getText().toString().equals(""))&&(ccTeacher.getText().toString().equals(""))&&(ccTeacher.getText().toString().length()>10)){
             return false;
         }else{
             return true;

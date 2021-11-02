@@ -121,7 +121,7 @@ public class CreateTeachersActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.inputTeachersEmail);
         String nameInput=nameTeacher.getText().toString();
         //Validate that inputs are empty
-        if((nameTeacher.getText().toString().equals(""))&&(nameInput.length()>60)&&(cc.getText().toString().equals(""))&&(cc.length()>10)&&(email.getText().toString().equals("")&&(email.length()>30))){
+        if((nameTeacher.getText().toString().equals(""))&&(nameInput.length()>60)&&(cc.getText().toString().equals(""))&&(cc.getText().toString().length()>10)&&(email.getText().toString().equals("")&&(email.getText().toString().length()>30))){
             return false;
         }else{
             return true;

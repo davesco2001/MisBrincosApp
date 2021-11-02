@@ -132,21 +132,39 @@ public class EditSessionsActivity extends AppCompatActivity {
         calendarText = findViewById(R.id.dateSessionEditText);
         classRoomNumber = findViewById(R.id.inputEditSessionsClassRoomNumber);
         ccTeacher = findViewById(R.id.inputEditSessionsTeacher);
-
+        hour = findViewById(R.id.textEditSessionHour);
         int idSes= Integer.parseInt(id.getText().toString());
         String calendarTextS=calendarText.getText().toString();
         int classR=Integer.parseInt(classRoomNumber.getText().toString());
         String ccT= ccTeacher.getText().toString();
+        boolean t = false;
+        ArrayList<Integer> classrooms= bdSessions.searchNumber(calendarTextS);
+            for (int i = 0; i < classrooms.size(); i++) {
+                if (classrooms.get(i) == classR) {
+                    t = true;
+                    ArrayList<Integer> fulls = bdSessions.searchNumberClassRoomOccupied(classR, calendarTextS, hour.getText().toString());
+                    for (int o = 0; o <fulls.size() ; o++) {
+                        if(fulls.get(o)!=classR){
+                            t = true;
+                        }else  {
+                            t = false;
+                        }
+                    }
+                }
+            }
 
-        bdSessions = new BdSessions();
-        if(bdSessions.getConnection()!=null){
-            Toast.makeText(EditSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
-            bdSessions.updateSesion(idSes, calendarTextS, ccT, classR);
-            bdSessions.dropConnection();
-            finish();
-
-        }else{
-            Toast.makeText(EditSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+        if(t) {
+            bdSessions = new BdSessions();
+            if (bdSessions.getConnection() != null) {
+                Toast.makeText(EditSessionsActivity.this, R.string.succes_bd_conection, Toast.LENGTH_SHORT).show();
+                if(t) {
+                    bdSessions.updateSesion(idSes, calendarTextS, ccT, classR);
+                    finish();
+                }
+                bdSessions.dropConnection();
+            } else {
+                Toast.makeText(EditSessionsActivity.this, R.string.nosucces_bd_conection, Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
@@ -155,7 +173,7 @@ public class EditSessionsActivity extends AppCompatActivity {
         calendarText = findViewById(R.id.dateSessionEditText);
         classRoomNumber = findViewById(R.id.inputEditSessionsClassRoomNumber);
         ccTeacher = findViewById(R.id.inputEditSessionsTeacher);
-        if((calendarText.getText().toString().equals(""))&&(classRoomNumber.getText().toString().equals(""))&&(ccTeacher.getText().toString().equals(""))){
+        if((calendarText.getText().toString().equals(""))&&(classRoomNumber.getText().toString().equals(""))&&(ccTeacher.getText().toString().equals(""))&&(ccTeacher.getText().toString().length()>10)){
             return false;
         }else{
             return true;
