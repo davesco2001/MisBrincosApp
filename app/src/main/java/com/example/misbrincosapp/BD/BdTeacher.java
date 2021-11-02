@@ -43,7 +43,7 @@ public class BdTeacher {
     }
     public ArrayList<String> searchCc(String lessonName) {
         ArrayList<String> arrayList = new ArrayList<String>();
-        String sql = "SELECT Cc_profesor FROM Especializa WHERE Nombre_clase='"+lessonName+"' ORDER BY Cc_profesro" ;
+        String sql = "SELECT Cc_profesor FROM Especializa WHERE Nombre_clase='"+lessonName+"' ORDER BY Cc_profesor " ;
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -187,17 +187,6 @@ public class BdTeacher {
     }
     public void addTeacher(String cc,String name, String email){
         try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Profesor VALUES ('"+cc+"' ,'"+name+"','"+email+"')")) {
-            preparedStatement.executeUpdate();
-        }catch (SQLException sqlException) {
-            //toast.makeText(createLessonsActivity,"Error en la ejecución:"
-            //        + sqlException.getErrorCode() + " " + sqlException.getMessage() , Toast.LENGTH_SHORT).show();
-            System.out.println("Error en la ejecución:"
-                    + sqlException.getErrorCode() + " " + sqlException.getMessage());
-        }
-
-    }
-    public void addSpecialize(String cc,String name){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Especializa VALUES ('"+cc+"' ,'"+name+"')")) {
             preparedStatement.executeUpdate();
         }catch (SQLException sqlException) {
             //toast.makeText(createLessonsActivity,"Error en la ejecución:"
